@@ -1,4 +1,4 @@
-# Drives the /repositories/ page: GitHub profile cards + repo cards, fetched
+# Drives the /repositories/ page: GitHub profile card + repo cards, fetched
 # live from the github-readme-stats instance set in _config.yml.
 
 github_users:
@@ -6,6 +6,20 @@ github_users:
 
 repo_description_lines_max: 2
 
-# Repos to feature, as owner/name. Replace with your own.
+# ONLY PUBLIC REPOS WORK HERE. The stats service fetches these anonymously, so
+# a private repo renders as a broken/empty card. These are your six public ones.
+#
+# Most of your work is currently private — hex_behav, Laser-stim-control-board,
+# Camera, ArduinoDAQ2-Due, cohort_visualizer, head_sensor_analysis and others.
+# Making the relevant ones public is the single highest-value thing you can do
+# for this site as a portfolio: it turns claims into evidence.
+#
+# Also worth adding a one-line description to each repo on GitHub — the cards
+# below show it, and every one of yours is currently blank.
 github_repos:
-  - stef1029/REPO
+  - stef1029/HexControl
+  - stef1029/Head-sensor-internal-code
+  - stef1029/Head-sensor-experiment-control
+  - stef1029/Smart-opto-stim-board
+  - stef1029/behaviour_camera
+  - stef1029/WormTrackatron7000

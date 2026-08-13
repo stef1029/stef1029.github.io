@@ -2,13 +2,13 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Research and engineering projects, with writeups.
+description: Instruments and systems I've built, and the science they were built for.
 nav: true
 nav_order: 1
 # Cards are grouped under these headings, matched against each project's
 # `category:` front matter. Rename/add categories here and in _projects/*.md.
 # Set `enable_project_categories: false` in _config.yml for one flat grid.
-display_categories: [research, engineering]
+display_categories: [research, engineering, personal]
 horizontal: false
 ---
 

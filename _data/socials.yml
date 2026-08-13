@@ -3,13 +3,19 @@
 # Icons appear in the order defined here. Comment out anything you don't use.
 # Full key list: https://github.com/george-gca/jekyll-socials
 
-# Path to the downloadable PDF CV. Drop your file at assets/pdf/ and point here.
+# Downloadable PDF CV. Currently the 13 Aug 2026 build of your LaTeX CV.
+# To update: rebuild main.pdf in cv_writing and copy it over assets/pdf/cv.pdf.
 cv_pdf: /assets/pdf/cv.pdf
 
-email: YOUR_EMAIL
+# NOTE: your LaTeX CV links mailto:src@mrc-lmb.cam.ac.uk but displays
+# srogers@mrc-lmb.cam.ac.uk. Using the displayed one — correct if wrong.
+email: srogers@mrc-lmb.cam.ac.uk
+
 github_username: stef1029
-linkedin_username: YOUR_LINKEDIN_SLUG # the bit after /in/ in your profile URL
-scholar_userid: YOUR_SCHOLAR_ID # the `user=` value in your Scholar profile URL
-orcid_id: # e.g. 0000-0002-1825-0097 — delete this line if you have no ORCID
+
+# TODO: add if you want them shown. Delete any line you don't want.
+linkedin_username: # the bit after /in/ in your profile URL
+scholar_userid: # the `user=` value in your Google Scholar profile URL
+orcid_id: # e.g. 0000-0002-1825-0097
 
 rss_icon: false # blog RSS icon; set true if you want it back

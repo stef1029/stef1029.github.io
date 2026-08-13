@@ -1,129 +1,201 @@
 {
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "_comment": [
-    "JSON Resume (https://jsonresume.org/schema/) — the format al-folio's docs call the preferred CV source.",
-    "This file is read by jekyll-get-json (see `jekyll_get_json` in _config.yml) and rendered by the",
-    "al_folio_cv plugin onto the /cv/ page. The section order shown on /cv/ is set by the `jsonresume:`",
-    "list in _config.yml — remove a section name there to hide it.",
-    "Keep this in sync with the narrative CV on the homepage (_pages/about.md).",
-    "Delete this file entirely if you would rather drive /cv/ from _data/cv.yml instead."
+    "JSON Resume (https://jsonresume.org/schema/). Read by jekyll-get-json and rendered",
+    "by the al_folio_cv plugin onto /cv/. Section order comes from the `jsonresume:` list",
+    "in _config.yml. Mirrors cv_writing/cv_13aug26/ — keep the three in sync:",
+    "this file, _pages/about.md, and the LaTeX CV."
   ],
   "basics": {
-    "name": "YOUR_FIRST_NAME YOUR_LAST_NAME",
-    "label": "PhD Candidate, YOUR_FIELD",
+    "name": "Stefan Rogers-Coltman",
+    "label": "Postdoctoral Researcher, MRC Laboratory of Molecular Biology",
     "image": "",
-    "email": "YOUR_EMAIL",
+    "email": "srogers@mrc-lmb.cam.ac.uk",
     "phone": "",
     "url": "https://stef1029.github.io",
-    "summary": "Engineer finishing a PhD in YOUR_FIELD at YOUR_UNIVERSITY, working on YOUR_RESEARCH_TOPIC_IN_ONE_LINE. Research spans YOUR_AREA_A and YOUR_AREA_B, combining YOUR_METHOD_A with YOUR_METHOD_B.",
+    "summary": "Neuroscientist with a PhD from the MRC Laboratory of Molecular Biology, bringing strong practical experience in end-to-end design and development. Skilled in combining scientific domain knowledge with hardware, electronics and software engineering to deliver reliable, integrated systems. Experienced collaborating with engineering specialists across disciplines, with a track record of rapidly engaging with unfamiliar technical domains.",
     "location": {
-      "city": "YOUR_CITY",
+      "city": "Cambridge",
       "countryCode": "GB",
-      "region": "YOUR_REGION"
+      "region": "Cambridgeshire"
     },
     "profiles": [
       {
         "network": "GitHub",
         "username": "stef1029",
         "url": "https://github.com/stef1029"
-      },
-      {
-        "network": "LinkedIn",
-        "username": "YOUR_LINKEDIN_SLUG",
-        "url": "https://www.linkedin.com/in/YOUR_LINKEDIN_SLUG"
-      },
-      {
-        "network": "Google Scholar",
-        "username": "YOUR_FIRST_NAME YOUR_LAST_NAME",
-        "url": "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
       }
     ]
   },
-  "education": [
-    {
-      "institution": "YOUR_UNIVERSITY",
-      "location": "YOUR_CITY, YOUR_COUNTRY",
-      "url": "YOUR_UNIVERSITY_URL",
-      "area": "YOUR_FIELD",
-      "studyType": "PhD",
-      "startDate": "20XX-09-01",
-      "endDate": "20XX-12-01",
-      "score": "",
-      "courses": ["Thesis: YOUR_THESIS_TITLE", "Supervisor: YOUR_SUPERVISOR"]
-    },
-    {
-      "institution": "YOUR_UNIVERSITY",
-      "location": "YOUR_CITY, YOUR_COUNTRY",
-      "url": "YOUR_UNIVERSITY_URL",
-      "area": "YOUR_FIELD",
-      "studyType": "MEng",
-      "startDate": "20XX-09-01",
-      "endDate": "20XX-06-01",
-      "score": "YOUR_CLASSIFICATION",
-      "courses": ["Dissertation: YOUR_MASTERS_TOPIC"]
-    }
-  ],
   "work": [
     {
-      "name": "YOUR_EMPLOYER",
-      "location": "YOUR_CITY, YOUR_COUNTRY",
-      "position": "YOUR_JOB_TITLE",
-      "url": "",
-      "startDate": "20XX-01-01",
+      "name": "MRC Laboratory of Molecular Biology",
+      "location": "Cambridge, UK",
+      "position": "Postdoctoral Researcher",
+      "url": "https://www2.mrc-lmb.cam.ac.uk/",
+      "startDate": "2025-01-01",
       "endDate": "",
-      "summary": "One line on the remit of the role.",
+      "summary": "Extending the behavioural platform developed during my PhD, working across the scientist-engineer interface and supervising a computing student.",
       "highlights": [
-        "An outcome rather than a duty, with a number attached where possible.",
-        "A second achievement worth a recruiter's attention.",
-        "Tools or methods you want to be associated with."
+        "Led development of a fully wireless successor to the behavioural rig system, taking it from concept to manufactured hardware in weeks: designed custom PCBs and wrote MCU firmware (STM32, BLE).",
+        "Designed and built a mouse-wearable wireless motion sensor (9-DOF IMU with magnetometer)."
       ]
     },
     {
-      "name": "YOUR_PREVIOUS_EMPLOYER",
-      "location": "YOUR_CITY, YOUR_COUNTRY",
-      "position": "YOUR_PREVIOUS_JOB_TITLE",
+      "name": "MRC Laboratory of Molecular Biology",
+      "location": "Cambridge, UK",
+      "position": "Doctoral Researcher",
+      "url": "https://www2.mrc-lmb.cam.ac.uk/",
+      "startDate": "2021-01-01",
+      "endDate": "2025-01-01",
+      "summary": "Initiated and led a cross-functional research programme, developing a scalable experimental platform integrating hardware, software and neuroscience methods, now adopted across multiple projects within the lab.",
+      "highlights": [
+        "Designed and built automated behavioural rigs for studying spatial decision-making in freely moving mice.",
+        "Developed wireless load-cell platforms (ESP32, Bluetooth) for automated trial initiation.",
+        "Implemented high-speed video acquisition in C++ using the Spinnaker API, enabling synchronised multi-camera recording.",
+        "Engineered a general-purpose data acquisition architecture for synchronising behavioural, video and electrophysiology signals.",
+        "Built integrated optogenetics control systems combining IMU-based head tracking, automated laser stimulation and real-time data visualisation.",
+        "Developed a novel behavioural paradigm dissociating sensory input from motor output in a naturalistic setting.",
+        "Manipulated superior colliculus Pitx2+ neurons using chemogenetics (DREADDs), demonstrating modulation of baseline spatial priors across movements.",
+        "Performed chronic electrophysiological recordings (optetrodes, Cambridge NeuroTech, Neuropixels) in freely moving mice during behaviour.",
+        "Identified a subpopulation of neurons encoding spatial confidence, selectively active during correct visual decisions but not during incorrect or non-visual trials."
+      ]
+    },
+    {
+      "name": "Cambridge Open Lab: Open Science in Practice Summer School",
+      "location": "Cambridge, UK",
+      "position": "Teaching Assistant",
       "url": "",
-      "startDate": "20XX-06-01",
-      "endDate": "20XX-09-01",
-      "summary": "One line on the remit of the role.",
-      "highlights": ["What you delivered and what changed as a result."]
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "summary": "Taught engineering techniques for neuroscience to PhD students, assisting practical workshops in electronics design (Arduino) and CAD (FreeCAD).",
+      "highlights": []
+    },
+    {
+      "name": "Cambridge University Yacht Club",
+      "location": "Cambridge, UK",
+      "position": "Head of Maintenance (Bosun)",
+      "url": "",
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "summary": "Responsible for maintenance and operational readiness of the club yacht, diagnosing and resolving mechanical and electrical issues to ensure safe and continuous operation.",
+      "highlights": []
+    },
+    {
+      "name": "FPV Drone Build Venture",
+      "location": "UK",
+      "position": "Founder",
+      "url": "",
+      "startDate": "2020-01-01",
+      "endDate": "2020-12-31",
+      "summary": "Designed and built custom FPV drones; managed end-to-end assembly and client delivery.",
+      "highlights": []
+    },
+    {
+      "name": "MRC LMB / UCL",
+      "location": "Cambridge & London, UK",
+      "position": "Research Assistant",
+      "url": "",
+      "startDate": "2018-06-01",
+      "endDate": "2019-09-01",
+      "summary": "Summer research placements.",
+      "highlights": [
+        "Developed organoid culture techniques (inner ear and choroid plexus models).",
+        "Performed imaging and analysis; contributed to protocol optimisation and automated sampling approaches."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Cambridge",
+      "location": "Cambridge, UK",
+      "url": "https://www.cam.ac.uk/",
+      "area": "Systems Neuroscience",
+      "studyType": "PhD",
+      "startDate": "2021-01-01",
+      "endDate": "2025-01-01",
+      "score": "",
+      "courses": ["Supervisor: Dr Marco Tripodi, MRC Laboratory of Molecular Biology"]
+    },
+    {
+      "institution": "Imperial College London",
+      "location": "London, UK",
+      "url": "https://www.imperial.ac.uk/",
+      "area": "Translational Neuroscience",
+      "studyType": "MSc",
+      "startDate": "2020-01-01",
+      "endDate": "2021-01-01",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "University College London",
+      "location": "London, UK",
+      "url": "https://www.ucl.ac.uk/",
+      "area": "Biomedical Sciences (Neuroscience specialisation)",
+      "studyType": "BSc (Hons)",
+      "startDate": "2017-01-01",
+      "endDate": "2020-01-01",
+      "score": "1st Class Honours",
+      "courses": []
     }
   ],
   "skills": [
     {
-      "name": "Engineering",
+      "name": "Programming & Software",
       "level": "Advanced",
-      "keywords": ["FEA (Abaqus, Ansys)", "CFD (OpenFOAM)", "CAD (SolidWorks, Fusion 360)", "GD&T", "Design for manufacture"]
+      "keywords": ["Python (data analysis, automation)", "C++ (high-performance imaging)", "Embedded firmware (STM32, BLE, Arduino)"]
     },
     {
-      "name": "Programming",
+      "name": "Experimental Systems & Engineering",
       "level": "Advanced",
-      "keywords": ["Python (NumPy, SciPy, pandas)", "MATLAB", "C++", "Git", "Linux", "Docker"]
+      "keywords": [
+        "Behavioural rig design",
+        "PCB design",
+        "Wireless sensor systems",
+        "Real-time data acquisition",
+        "High-speed imaging (FLIR / Spinnaker)",
+        "Hardware-software integration",
+        "Multi-system synchronisation"
+      ]
     },
     {
-      "name": "Experimental",
+      "name": "Neuroscience & In Vivo Methods",
       "level": "Advanced",
-      "keywords": ["Design of experiments", "LabVIEW", "Data acquisition", "Strain gauging", "Digital image correlation", "Uncertainty analysis"]
+      "keywords": [
+        "UK Home Office Personal Licence (PIL) holder",
+        "Behavioural task design and animal training",
+        "Mouse neurosurgery (viral injections, implants)",
+        "Chronic electrophysiology (optetrodes, Neuropixels)"
+      ]
+    },
+    {
+      "name": "Data Analysis",
+      "level": "Advanced",
+      "keywords": ["Statistical modelling", "Custom pipeline development", "Behavioural analysis", "Neural data integration"]
     }
   ],
   "awards": [
     {
-      "title": "YOUR_AWARD_OR_SCHOLARSHIP",
-      "date": "20XX",
-      "awarder": "YOUR_AWARDING_BODY",
-      "summary": "One line on what it was awarded for."
+      "title": "Laidlaw Undergraduate Research and Leadership Scholarship",
+      "date": "",
+      "awarder": "Laidlaw Foundation",
+      "summary": "Funded research placements and leadership training."
+    }
+  ],
+  "publications": [
+    {
+      "name": "Behavioural paradigm and superior colliculus manipulation study",
+      "publisher": "Manuscript in preparation",
+      "releaseDate": "",
+      "url": "",
+      "summary": "Rogers-Coltman S, Welch D, Geyer L, Tripodi M."
     }
   ],
   "languages": [
     {
       "language": "English",
       "fluency": "Native speaker"
-    }
-  ],
-  "interests": [
-    {
-      "name": "YOUR_RESEARCH_INTEREST_AREA",
-      "keywords": ["YOUR_AREA_A", "YOUR_AREA_B"]
     }
   ]
 }

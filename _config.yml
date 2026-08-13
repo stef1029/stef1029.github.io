@@ -3,13 +3,14 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: YOUR_FIRST_NAME
-middle_name: ""
-last_name: YOUR_LAST_NAME
+first_name: Stefan
+middle_name:
+last_name: Rogers-Coltman
 contact_note: >
   The fastest way to reach me is by email.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Engineering PhD researcher. CV, research projects and publications.
+  Neuroscientist and engineer at the MRC Laboratory of Molecular Biology, Cambridge.
+  Building hardware and software systems for studying behaviour and neural circuits.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -354,8 +355,8 @@ display_categories: [] # these categories will be displayed on the front page of
 scholar:
   # Used to bold YOUR name in the publications list. Include every form your
   # name appears in across your .bib entries (e.g. full first name and initial).
-  last_name: [YOUR_LAST_NAME]
-  first_name: [YOUR_FIRST_NAME, Y.]
+  last_name: [Rogers-Coltman]
+  first_name: [Stefan, S.]
 
   style: apa
   locale: en
