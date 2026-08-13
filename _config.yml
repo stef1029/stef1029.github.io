@@ -211,7 +211,10 @@ kramdown:
 # Includes & excludes
 include: ["_pages"]
 exclude:
-  - AGENTS.md
+  # al-folio's own project infrastructure (its docs, tests, CI, agent config),
+  # parked out of the way. Nothing in here affects your site — see
+  # _upstream/README.md. Safe to delete the whole folder if you never want it.
+  - _upstream/
   - al-folio-upgrade-report.md
   - bin/
   - CLAUDE.md

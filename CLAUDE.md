@@ -1,48 +1,65 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code working in this repository.
 
-@AGENTS.md
+This is **stef1029's personal CV/portfolio website**, built on the al-folio
+Jekyll theme and deployed to GitHub Pages at <https://stef1029.github.io>.
 
-`AGENTS.md` (imported above) is the **authoritative** agent entry point: change routing, the stop sign for gem-owned paths, the three silent failure modes, and the validated command set. Keep it short and ecosystem-neutral. Cross-repo architecture — the wrapper/tag/gem delegation table, feature gating, the v1 config contract, local overrides — lives in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); area-to-gem ownership lives in [`docs/BOUNDARIES.md`](docs/BOUNDARIES.md).
+It is _not_ the al-folio project itself. al-folio's own contributor rules —
+including its "stop sign" forbidding `_layouts/`, `_includes/` and `_sass/` —
+apply to that upstream repo, **not here**. Those files now live in
+`_upstream/AGENTS.md` for reference only. As a site generated from the template,
+this repo _may_ legally shadow gem-owned files.
 
-**Read those three before editing anything.** Everything below is Claude-specific or longer-form operational detail that does not belong in the short entry point. Do not restate facts from those files here — link to them.
+## What this site is
 
-## Daily dev loop
+The landing page **is** the CV: name, photo, bio, education, experience, skills,
+links and a PDF download, all readable without clicking. Everything else hangs
+off it — a projects page with one detail page per project, and publications.
+
+## Where things live
+
+| Change                              | File                                   |
+| ----------------------------------- | -------------------------------------- |
+| The CV itself (homepage)            | `_pages/about.md`                      |
+| Structured CV shown at `/cv/`       | `assets/json/resume.json`              |
+| Downloadable CV PDF                 | `assets/pdf/cv.pdf`                    |
+| Email, GitHub, LinkedIn, Scholar    | `_data/socials.yml`                    |
+| A project                           | `_projects/NN-slug.md`                 |
+| Publications                        | `_bibliography/papers.bib`             |
+| Site settings, feature flags        | `_config.yml`                          |
+
+Everything else at the root is build machinery. `_upstream/` is al-folio's own
+project infrastructure, excluded from the build — see `_upstream/README.md`.
+
+## Things that will silently bite
+
+1. **This is a user site, so `baseurl` must stay empty** in `_config.yml`, with
+   `url: https://stef1029.github.io`. Setting a baseurl renders the site
+   unstyled with broken links. Local preview is therefore `http://localhost:8080/`,
+   not the `/al-folio/` path al-folio's own docs mention.
+2. **Use Tailwind classes, never Bootstrap.** al-folio v1.x is Tailwind-first and
+   `al_folio.compat.bootstrap.enabled` is `false`. Image grids are
+   `grid grid-cols-1 md:grid-cols-3 gap-4`, not `row` / `col-sm-*`.
+3. **Layouts and CSS are gem-owned.** al-folio v1.x is a thin starter; rendering
+   lives in the `al_folio_*` gems pinned in the `Gemfile`. There is no
+   `_layouts/` here. To override one, create the matching file locally.
+4. **Project filenames must not match `?_project.md`** — that glob is excluded in
+   `_config.yml` to hide the theme's nine demo projects.
+5. **Adding a plugin means editing two files** — `Gemfile` *and* the `plugins:`
+   list in `_config.yml`. In only one, it is inert with no error.
+6. **Demo content is excluded, not deleted** (`_posts/`, `_news/`, `_books/`,
+   `_teachings/`), per al-folio's docs, so theme upgrades don't conflict. The
+   blog and teaching pages are consequently live but empty.
+
+## Commands
 
 ```bash
-bundle install                                # ruby gems
-bundle exec jekyll serve                      # dev server → http://localhost:4000/al-folio/  (NOTE baseurl)
-bundle exec jekyll build --baseurl /al-folio  # production-style build to _site/
-bash test/integration_distill.sh              # run ONE integration test (any of the seven in test/)
-npm run test:visual:update                    # refresh playwright snapshots after intentional UI change
-bundle exec al-folio upgrade apply --safe     # deterministic codemods (font-weight-* → font-*, remote→local URLs)
-bundle exec al-folio upgrade overrides diff <path>    # then `overrides accept <path>` to acknowledge an override
+docker compose up          # local preview at http://localhost:8080
+docker compose down        # stop it
 ```
 
-## Optional toolchains
-
-- **Jupyter posts.** `bin/setup-python-deps` installs _only_ `jupyter` and `nbconvert` (via `pip --user --break-system-packages`) for `jekyll-jupyter-notebook`. It does **not** read `requirements.txt`. Missing `jupyter-nbconvert` is warn-and-continue; notebook rendering is skipped.
-- **Everything else Python.** [`requirements.txt`](requirements.txt) is the fuller list and must be installed separately (`python3 -m pip install -r requirements.txt`): `rendercv[full]` for CV rendering, `scholarly` for `bin/update_scholar_citations.py`, plus `nbconvert` and `pyyaml`.
-- **Responsive images.** `imagemagick.enabled: true` needs ImageMagick `convert` on `PATH`.
-- **Manual deploy.** `bin/deploy` is the manual `gh-pages` build + purgecss + force-push path; CI normally deploys. `purgecss` is not a devDependency — install it with `npm install -g purgecss`.
-
-## Docker serving model (v1-specific)
-
-`docker compose up -d` bind-mounts the repo to `/srv/jekyll` and runs `bin/entry_point.sh`, which serves with `--force_polling --destination /tmp/_site`. The build output deliberately goes to **container-local `/tmp/_site`, not the bind-mounted `_site`** — writing `_site` back across the host bind mount caused write deadlocks. The container also `inotifywait`s `_config.yml` and restarts Jekyll on change (config edits aren't hot-reloaded by `--watch`). Verify with the `/al-folio` baseurl: `curl -fsS http://127.0.0.1:8080/al-folio/`. `docker-compose-slim.yml` pulls a prebuilt `:slim` image instead of building locally.
-
-## CI gates and the style contract
-
-`npm run lint:style-contract` (`test/style_contract.js`) is the automated enforcement of the thin-starter boundary and will fail CI if you cross it. Beyond the forbidden paths listed in `AGENTS.md`, it also asserts that `_config.yml` keeps `theme: al_folio_core` and the required plugins, that the `third_party_libraries` SRI pins are present, and that the `al_math` Gemfile pin stays on a released version rather than a git branch.
-
-Other gates:
-
-- `unit-tests.yml` — style contract plus all seven `test/integration_*.sh` scripts (`comments`, `plugin_toggles`, `distill`, `bootstrap_compat`, `upgrade_cli`, `css_minify`, `new_plugins`).
-- `visual-regression.yml` — Playwright on chromium + webkit, diffing the candidate build against a `v0.16.3` baseline worktree served on `:4100` via `BASELINE_URL`.
-- `upgrade-check.yml` — `bundle exec al-folio upgrade audit`.
-- `prettier.yml` — Prettier with `@shopify/prettier-plugin-liquid` and `printWidth: 150`. Run `npm run lint:prettier` before pushing; `npx prettier . --write` fixes.
-- `update-tocs.yml` — regenerates `<!--ts-->…<!--te-->` blocks in changed root and `docs/` Markdown files. If you add or rename a heading, expect a follow-up auto-commit on `main`.
-
-## Gem version pins
-
-`Gemfile` pins every `al-*` gem to an exact released version in `group :al_folio_plugins`, and `_config.yml` lists the same gems under `plugins:`. Read the current pins from the `Gemfile` rather than trusting any version quoted in prose — including here. To test a gem fix against this site, repoint the `Gemfile` at a sibling checkout (`path:`, `git:`, or `branch:`) and `bundle install`; see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#working-on-a-gem-alongside-the-starter). Revert the pin before committing.
+The container watches `_config.yml` and restarts Jekyll on change; everything
+else hot-reloads. Deployment is automatic: push to `main` and
+`.github/workflows/deploy.yml` publishes to the `gh-pages` branch. Never edit
+`gh-pages` by hand.
