@@ -28,9 +28,14 @@ latest_posts:
   Content mirrors cv_writing/cv_13aug26/. When you update the LaTeX CV,
   update here too (and copy the new main.pdf over assets/pdf/cv.pdf).
 
-  Entry pattern: a flex row with role on the left, dates on the right, then
-  an institution line, then prose. Copy any block to add an entry.
-  These are Tailwind classes — do NOT use Bootstrap row/col-sm-*.
+  Entry pattern: a .cv-entry row puts the role on the left and dates on the
+  right, then a .cv-org line, then prose. Copy any block to add an entry.
+
+  IMPORTANT: .cv-entry / .cv-dates / .cv-org / .cv-skill are OUR OWN classes,
+  defined at the bottom of assets/css/main.scss. Do not use Tailwind utility
+  classes (justify-between, gap-x-4, md:grid-cols-3 …) in page content: the
+  theme ships a prebuilt, pruned tailwind.css and there is no Tailwind build
+  step here, so those classes produce no CSS and silently do nothing.
 -->
 
 {% include todo.liquid label="check" text="<strong>These coloured boxes are notes to you and are invisible on the live site</strong> — they only render in local preview. <span style='color:#f59e0b'><strong>Amber = write something</strong></span>. <span style='color:#0ea5e9'><strong>Blue = add an image</strong></span>. <span style='color:#a855f7'><strong>Purple = confirm/decide something</strong></span>. <span style='color:#ec4899'><strong>Pink = I wrote this, make it yours</strong></span>. If a page has no boxes, nothing on it needs your attention." %}
@@ -66,11 +71,11 @@ systems I've built.
 
 ## Experience
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <strong>Postdoctoral Researcher</strong>
-  <span class="text-sm opacity-60 whitespace-nowrap">2025 &ndash; present</span>
+  <span class="cv-dates">2025 &ndash; present</span>
 </div>
-<div class="text-sm opacity-75">MRC Laboratory of Molecular Biology, Cambridge</div>
+<div class="cv-org">MRC Laboratory of Molecular Biology, Cambridge</div>
 
 Extending the behavioural platform developed during my PhD, working across the
 scientist–engineer interface and supervising a computing student.
@@ -78,11 +83,11 @@ scientist–engineer interface and supervising a computing student.
 - Led development of a fully wireless successor to the behavioural rig system, taking it from concept to manufactured hardware in weeks — custom PCBs and MCU firmware (STM32, BLE).
 - Designed and built a mouse-wearable wireless motion sensor (9-DOF IMU with magnetometer).
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <strong>Doctoral Researcher</strong>
-  <span class="text-sm opacity-60 whitespace-nowrap">2021 &ndash; 2025</span>
+  <span class="cv-dates">2021 &ndash; 2025</span>
 </div>
-<div class="text-sm opacity-75">MRC Laboratory of Molecular Biology, Cambridge</div>
+<div class="cv-org">MRC Laboratory of Molecular Biology, Cambridge</div>
 
 Initiated and led a cross-functional research programme, developing a scalable
 experimental platform integrating hardware, software and neuroscience methods,
@@ -110,25 +115,25 @@ deploy robust experimental systems.
 
 ## Education
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <strong>PhD, Systems Neuroscience</strong>
-  <span class="text-sm opacity-60 whitespace-nowrap">2021 &ndash; 2025</span>
+  <span class="cv-dates">2021 &ndash; 2025</span>
 </div>
-<div class="text-sm opacity-75">University of Cambridge</div>
+<div class="cv-org">University of Cambridge</div>
 
 Supervised by Dr Marco Tripodi, MRC Laboratory of Molecular Biology.
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <strong>MSc, Translational Neuroscience</strong>
-  <span class="text-sm opacity-60 whitespace-nowrap">2020 &ndash; 2021</span>
+  <span class="cv-dates">2020 &ndash; 2021</span>
 </div>
-<div class="text-sm opacity-75">Imperial College London</div>
+<div class="cv-org">Imperial College London</div>
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <strong>BSc (Hons), Biomedical Sciences</strong>
-  <span class="text-sm opacity-60 whitespace-nowrap">2017 &ndash; 2020</span>
+  <span class="cv-dates">2017 &ndash; 2020</span>
 </div>
-<div class="text-sm opacity-75">University College London</div>
+<div class="cv-org">University College London</div>
 
 First Class Honours, neuroscience specialisation.
 
@@ -136,53 +141,53 @@ First Class Honours, neuroscience specialisation.
 
 ## Skills
 
-<div class="flex flex-wrap items-baseline gap-x-4 mt-4">
-  <strong class="basis-52">Programming &amp; software</strong>
-  <span class="flex-1">Python (data analysis, automation) · C++ (high-performance imaging) · embedded firmware (STM32, BLE, Arduino)</span>
+<div class="cv-skill">
+  <strong class="cv-skill-name">Programming &amp; software</strong>
+  <span class="cv-skill-body">Python (data analysis, automation) · C++ (high-performance imaging) · embedded firmware (STM32, BLE, Arduino)</span>
 </div>
-<div class="flex flex-wrap items-baseline gap-x-4 mt-2">
-  <strong class="basis-52">Experimental systems &amp; engineering</strong>
-  <span class="flex-1">Behavioural rig design · PCB design · wireless sensor systems · real-time data acquisition · high-speed imaging (FLIR / Spinnaker) · hardware–software integration · multi-system synchronisation</span>
+<div class="cv-skill">
+  <strong class="cv-skill-name">Experimental systems &amp; engineering</strong>
+  <span class="cv-skill-body">Behavioural rig design · PCB design · wireless sensor systems · real-time data acquisition · high-speed imaging (FLIR / Spinnaker) · hardware–software integration · multi-system synchronisation</span>
 </div>
-<div class="flex flex-wrap items-baseline gap-x-4 mt-2">
-  <strong class="basis-52">Neuroscience &amp; <em>in vivo</em> methods</strong>
-  <span class="flex-1">UK Home Office Personal Licence (PIL) holder · behavioural task design and animal training · mouse neurosurgery (viral injections, implants) · chronic electrophysiology (optetrodes, Neuropixels)</span>
+<div class="cv-skill">
+  <strong class="cv-skill-name">Neuroscience &amp; <em>in vivo</em> methods</strong>
+  <span class="cv-skill-body">UK Home Office Personal Licence (PIL) holder · behavioural task design and animal training · mouse neurosurgery (viral injections, implants) · chronic electrophysiology (optetrodes, Neuropixels)</span>
 </div>
-<div class="flex flex-wrap items-baseline gap-x-4 mt-2">
-  <strong class="basis-52">Data analysis</strong>
-  <span class="flex-1">Statistical modelling · custom pipeline development · behavioural analysis · neural data integration</span>
+<div class="cv-skill">
+  <strong class="cv-skill-name">Data analysis</strong>
+  <span class="cv-skill-body">Statistical modelling · custom pipeline development · behavioural analysis · neural data integration</span>
 </div>
 
 ---
 
 ## Selected additional experience
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <span><strong>Teaching Assistant</strong> — Cambridge Open Lab: Open Science in Practice Summer School</span>
-  <span class="text-sm opacity-60 whitespace-nowrap">2026</span>
+  <span class="cv-dates">2026</span>
 </div>
 
 Taught engineering techniques for neuroscience to PhD students, assisting
 practical workshops in electronics design (Arduino) and CAD (FreeCAD).
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <span><strong>Head of Maintenance (Bosun)</strong> — Cambridge University Yacht Club</span>
-  <span class="text-sm opacity-60 whitespace-nowrap">2026</span>
+  <span class="cv-dates">2026</span>
 </div>
 
 Responsible for maintenance and operational readiness of the club yacht,
 diagnosing and resolving mechanical and electrical issues.
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <span><strong>Founder</strong> — FPV drone build venture</span>
-  <span class="text-sm opacity-60 whitespace-nowrap">2020</span>
+  <span class="cv-dates">2020</span>
 </div>
 
 Designed and built custom FPV drones; managed end-to-end assembly and client delivery.
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <span><strong>Research Assistant</strong> — MRC LMB / UCL</span>
-  <span class="text-sm opacity-60 whitespace-nowrap">Summers 2018/19</span>
+  <span class="cv-dates">Summers 2018/19</span>
 </div>
 
 Developed organoid culture techniques (inner ear and choroid plexus models);
@@ -193,7 +198,7 @@ automated sampling approaches.
 
 ## Awards
 
-<div class="flex flex-wrap items-baseline justify-between gap-x-4 mt-4">
+<div class="cv-entry">
   <span><strong>Laidlaw Undergraduate Research and Leadership Scholarship</strong> — Laidlaw Foundation</span>
 </div>
 

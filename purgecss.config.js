@@ -23,5 +23,20 @@ module.exports = {
     // and page chrome (scroll-progress bar, ToC) bleeds through a zoomed image.
     "medium-zoom-overlay",
     "medium-zoom-image--opened",
+    // Site-local classes from the bottom of assets/css/main.scss. The img-grid
+    // ones currently appear only inside commented-out image blocks in
+    // _projects/*.md, so PurgeCSS would drop them — and the grids would then be
+    // broken in production the moment a block is uncommented. Safelisted so the
+    // rules survive until the images land.
+    "cv-entry",
+    "cv-role",
+    "cv-dates",
+    "cv-org",
+    "cv-skill",
+    "cv-skill-name",
+    "cv-skill-body",
+    "img-grid",
+    "img-grid-2",
+    "img-grid-3",
   ],
 };

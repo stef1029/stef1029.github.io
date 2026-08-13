@@ -18,7 +18,7 @@ from.
 {% include todo.liquid label="image" text="<strong>This is the most photogenic thing on the entire site</strong> — build shots, finished airframes, FPV stills. If you have old photos anywhere, this page is the easiest big win available. Save the best one as <code>assets/img/projects/drone-hero.jpg</code>." %}
 
 <!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="grid grid-cols-1 gap-4">
+<div class="img-grid">
   {% include figure.liquid loading="eager" path="assets/img/projects/drone-hero.jpg" title="A finished build" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">Caption.</div>
@@ -31,7 +31,7 @@ from.
 {% include todo.liquid label="image" text="A <strong>three-up grid of different builds</strong> works nicely here. Save as <code>drone-1.jpg</code>, <code>drone-2.jpg</code>, <code>drone-3.jpg</code>." %}
 
 <!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="img-grid img-grid-3">
   {% include figure.liquid path="assets/img/projects/drone-1.jpg" title="Build 1" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/drone-2.jpg" title="Build 2" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/drone-3.jpg" title="Build 3" class="img-fluid rounded z-depth-1" %}

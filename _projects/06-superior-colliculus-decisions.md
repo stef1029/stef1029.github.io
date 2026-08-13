@@ -18,7 +18,7 @@ to ask how the superior colliculus contributes to deciding where to move next.
 {% include todo.liquid label="image" text="<strong>Task schematic.</strong> For a research project this does more work than any photo — it lets a reader understand the paradigm in five seconds. Save as <code>assets/img/projects/sc-task.png</code>. You likely have one already from a talk or thesis figure." %}
 
 <!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="grid grid-cols-1 gap-4">
+<div class="img-grid">
   {% include figure.liquid loading="eager" path="assets/img/projects/sc-task.png" title="Task schematic" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">The behavioural task.</div>
@@ -45,7 +45,7 @@ Three results from this work:
 {% include todo.liquid label="image" text="<strong>Results figures</strong> — behaviour, DREADD effect, ephys. Save as <code>sc-behaviour.png</code>, <code>sc-dreadds.png</code>, <code>sc-ephys.png</code> and uncomment the grid below. Panels from the manuscript figures are fine." %}
 
 <!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="img-grid img-grid-3">
   {% include figure.liquid path="assets/img/projects/sc-behaviour.png" title="Behaviour" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/sc-dreadds.png" title="DREADDs" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/sc-ephys.png" title="Ephys" class="img-fluid rounded z-depth-1" %}

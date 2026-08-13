@@ -17,7 +17,7 @@ automated laser control, with real-time visualisation of the incoming data.
 {% include todo.liquid label="image" text="<strong>Hero shot</strong> — the stim board, or a screenshot of the live visualisation UI. Save as <code>assets/img/projects/opto-hero.jpg</code>." %}
 
 <!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="grid grid-cols-1 gap-4">
+<div class="img-grid">
   {% include figure.liquid loading="eager" path="assets/img/projects/opto-hero.jpg" title="The system in use" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">Caption.</div>

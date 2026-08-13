@@ -46,9 +46,17 @@ Copy `_projects/01-cryogenic-fatigue-rig.md` — it is commented as a template.
   `_pages/projects.md`.
 - Use `{% include figure.liquid path="assets/img/x.jpg" %}` for images rather
   than raw `<img>` — it generates responsive WebP variants automatically.
-- Image grids use **Tailwind** classes (`grid grid-cols-1 md:grid-cols-3 gap-4`).
-  Do **not** use Bootstrap `row` / `col-sm-*`: v1.x is Tailwind-first and
-  `al_folio.compat.bootstrap.enabled` is `false` in `_config.yml`.
+- Image grids use our own classes: `<div class="img-grid img-grid-3">` (or
+  `img-grid-2`, or just `img-grid` for one full-width image).
+
+**Do not use Tailwind utility classes** (`gap-4`, `md:grid-cols-3`,
+`justify-between`…) in page content. The theme ships a prebuilt, pruned
+`tailwind.css` built by scanning its *own* templates, and there is no Tailwind
+build step in this repo — so those classes emit the HTML attribute but no CSS
+rule ever exists, and the layout silently does nothing. Bootstrap classes are
+dead too. Add real rules at the bottom of `assets/css/main.scss` instead; that
+file shadows the theme's copy and already defines `.cv-entry`, `.cv-dates`,
+`.cv-org`, `.cv-skill` and `.img-grid`.
 
 ## Adding a publication
 

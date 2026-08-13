@@ -19,7 +19,7 @@ against FLIR's Spinnaker API.
 {% include todo.liquid label="image" text="<strong>This project needs a DIAGRAM more than a photo.</strong> Boxes for each data source, arrows into the sync layer, then storage and analysis. draw.io or Inkscape is fine. Save as <code>assets/img/projects/daq-architecture.png</code> — it will be the single most useful image on the whole site." %}
 
 <!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="grid grid-cols-1 gap-4">
+<div class="img-grid">
   {% include figure.liquid loading="eager" path="assets/img/projects/daq-architecture.png" title="System architecture" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">Data flow from acquisition through synchronisation to storage.</div>

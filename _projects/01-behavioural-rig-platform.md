@@ -21,7 +21,7 @@ projects in the lab.
 {% include todo.liquid label="image" text="<strong>Hero shot of the rig.</strong> Save as <code>assets/img/projects/rig-hero.jpg</code> and uncomment the block below in the source." %}
 
 <!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="grid grid-cols-1 gap-4">
+<div class="img-grid">
   {% include figure.liquid loading="eager" path="assets/img/projects/rig-hero.jpg" title="The behavioural rig" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">One line describing what the reader is looking at.</div>
@@ -44,7 +44,7 @@ The platform's main elements:
 {% include todo.liquid label="image" text="<strong>2–3 images work well here</strong> — CAD render, bare electronics, assembled rig in use. Save as <code>rig-cad.jpg</code>, <code>rig-pcb.jpg</code>, <code>rig-built.jpg</code> in <code>assets/img/projects/</code> and uncomment the grid below." %}
 
 <!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="img-grid img-grid-3">
   {% include figure.liquid path="assets/img/projects/rig-cad.jpg" title="CAD" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/rig-pcb.jpg" title="Electronics" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/rig-built.jpg" title="Assembled" class="img-fluid rounded z-depth-1" %}

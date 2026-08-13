@@ -17,7 +17,7 @@ capture head and body movement during natural behaviour.
 {% include todo.liquid label="image" text="<strong>Hero shot — photograph it next to a coin or ruler.</strong> The size constraint is the whole story of this project and one photo sells it better than three paragraphs. Save as <code>assets/img/projects/imu-hero.jpg</code>." %}
 
 <!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="grid grid-cols-1 gap-4">
+<div class="img-grid">
   {% include figure.liquid loading="eager" path="assets/img/projects/imu-hero.jpg" title="The wearable sensor" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">Include something for scale.</div>
@@ -34,7 +34,7 @@ capture head and body movement during natural behaviour.
 {% include todo.liquid label="image" text="<strong>Three-up grid</strong> — bare board, enclosure or CAD, sensor being worn. Save as <code>imu-board.jpg</code>, <code>imu-cad.jpg</code>, <code>imu-worn.jpg</code>." %}
 
 <!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="img-grid img-grid-3">
   {% include figure.liquid path="assets/img/projects/imu-board.jpg" title="Board" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/imu-cad.jpg" title="Housing" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/imu-worn.jpg" title="In use" class="img-fluid rounded z-depth-1" %}

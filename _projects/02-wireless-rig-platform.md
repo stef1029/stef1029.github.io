@@ -20,7 +20,7 @@ from concept to manufactured hardware in a matter of weeks.
 {% include todo.liquid label="image" text="<strong>Hero shot</strong> — the board, or the rig in use. Save as <code>assets/img/projects/wireless-hero.jpg</code>." %}
 
 <!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="grid grid-cols-1 gap-4">
+<div class="img-grid">
   {% include figure.liquid loading="eager" path="assets/img/projects/wireless-hero.jpg" title="The wireless rig hardware" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">Caption.</div>
@@ -37,7 +37,7 @@ from concept to manufactured hardware in a matter of weeks.
 {% include todo.liquid label="image" text="<strong>PCB layout render + assembled board</strong> side by side is the standard shot for this and always looks good. Save as <code>wireless-pcb-layout.jpg</code> and <code>wireless-pcb-built.jpg</code>." %}
 
 <!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="img-grid img-grid-2">
   {% include figure.liquid path="assets/img/projects/wireless-pcb-layout.jpg" title="PCB layout" class="img-fluid rounded z-depth-1" %}
   {% include figure.liquid path="assets/img/projects/wireless-pcb-built.jpg" title="Assembled board" class="img-fluid rounded z-depth-1" %}
 </div>
