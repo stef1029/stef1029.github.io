@@ -1,0 +1,15 @@
+# Social links + CV PDF, rendered by the jekyll-socials plugin wherever
+# `social: true` is set (homepage bottom, and the site footer).
+# Icons appear in the order defined here. Comment out anything you don't use.
+# Full key list: https://github.com/george-gca/jekyll-socials
+
+# Path to the downloadable PDF CV. Drop your file at assets/pdf/ and point here.
+cv_pdf: /assets/pdf/cv.pdf
+
+email: YOUR_EMAIL
+github_username: YOURUSERNAME
+linkedin_username: YOUR_LINKEDIN_SLUG # the bit after /in/ in your profile URL
+scholar_userid: YOUR_SCHOLAR_ID # the `user=` value in your Scholar profile URL
+orcid_id: # e.g. 0000-0002-1825-0097 — delete this line if you have no ORCID
+
+rss_icon: false # blog RSS icon; set true if you want it back

@@ -1,0 +1,11 @@
+# Drives the /repositories/ page: GitHub profile cards + repo cards, fetched
+# live from the github-readme-stats instance set in _config.yml.
+
+github_users:
+  - YOURUSERNAME
+
+repo_description_lines_max: 2
+
+# Repos to feature, as owner/name. Replace with your own.
+github_repos:
+  - YOURUSERNAME/REPO

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "_comment": [
+    "JSON Resume (https://jsonresume.org/schema/) — the format al-folio's docs call the preferred CV source.",
+    "This file is read by jekyll-get-json (see `jekyll_get_json` in _config.yml) and rendered by the",
+    "al_folio_cv plugin onto the /cv/ page. The section order shown on /cv/ is set by the `jsonresume:`",
+    "list in _config.yml — remove a section name there to hide it.",
+    "Keep this in sync with the narrative CV on the homepage (_pages/about.md).",
+    "Delete this file entirely if you would rather drive /cv/ from _data/cv.yml instead."
+  ],
+  "basics": {
+    "name": "YOUR_FIRST_NAME YOUR_LAST_NAME",
+    "label": "PhD Candidate, YOUR_FIELD",
+    "image": "",
+    "email": "YOUR_EMAIL",
+    "phone": "",
+    "url": "https://YOURUSERNAME.github.io",
+    "summary": "Engineer finishing a PhD in YOUR_FIELD at YOUR_UNIVERSITY, working on YOUR_RESEARCH_TOPIC_IN_ONE_LINE. Research spans YOUR_AREA_A and YOUR_AREA_B, combining YOUR_METHOD_A with YOUR_METHOD_B.",
+    "location": {
+      "city": "YOUR_CITY",
+      "countryCode": "GB",
+      "region": "YOUR_REGION"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "YOURUSERNAME",
+        "url": "https://github.com/YOURUSERNAME"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "YOUR_LINKEDIN_SLUG",
+        "url": "https://www.linkedin.com/in/YOUR_LINKEDIN_SLUG"
+      },
+      {
+        "network": "Google Scholar",
+        "username": "YOUR_FIRST_NAME YOUR_LAST_NAME",
+        "url": "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "YOUR_UNIVERSITY",
+      "location": "YOUR_CITY, YOUR_COUNTRY",
+      "url": "YOUR_UNIVERSITY_URL",
+      "area": "YOUR_FIELD",
+      "studyType": "PhD",
+      "startDate": "20XX-09-01",
+      "endDate": "20XX-12-01",
+      "score": "",
+      "courses": ["Thesis: YOUR_THESIS_TITLE", "Supervisor: YOUR_SUPERVISOR"]
+    },
+    {
+      "institution": "YOUR_UNIVERSITY",
+      "location": "YOUR_CITY, YOUR_COUNTRY",
+      "url": "YOUR_UNIVERSITY_URL",
+      "area": "YOUR_FIELD",
+      "studyType": "MEng",
+      "startDate": "20XX-09-01",
+      "endDate": "20XX-06-01",
+      "score": "YOUR_CLASSIFICATION",
+      "courses": ["Dissertation: YOUR_MASTERS_TOPIC"]
+    }
+  ],
+  "work": [
+    {
+      "name": "YOUR_EMPLOYER",
+      "location": "YOUR_CITY, YOUR_COUNTRY",
+      "position": "YOUR_JOB_TITLE",
+      "url": "",
+      "startDate": "20XX-01-01",
+      "endDate": "",
+      "summary": "One line on the remit of the role.",
+      "highlights": [
+        "An outcome rather than a duty, with a number attached where possible.",
+        "A second achievement worth a recruiter's attention.",
+        "Tools or methods you want to be associated with."
+      ]
+    },
+    {
+      "name": "YOUR_PREVIOUS_EMPLOYER",
+      "location": "YOUR_CITY, YOUR_COUNTRY",
+      "position": "YOUR_PREVIOUS_JOB_TITLE",
+      "url": "",
+      "startDate": "20XX-06-01",
+      "endDate": "20XX-09-01",
+      "summary": "One line on the remit of the role.",
+      "highlights": ["What you delivered and what changed as a result."]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Engineering",
+      "level": "Advanced",
+      "keywords": ["FEA (Abaqus, Ansys)", "CFD (OpenFOAM)", "CAD (SolidWorks, Fusion 360)", "GD&T", "Design for manufacture"]
+    },
+    {
+      "name": "Programming",
+      "level": "Advanced",
+      "keywords": ["Python (NumPy, SciPy, pandas)", "MATLAB", "C++", "Git", "Linux", "Docker"]
+    },
+    {
+      "name": "Experimental",
+      "level": "Advanced",
+      "keywords": ["Design of experiments", "LabVIEW", "Data acquisition", "Strain gauging", "Digital image correlation", "Uncertainty analysis"]
+    }
+  ],
+  "awards": [
+    {
+      "title": "YOUR_AWARD_OR_SCHOLARSHIP",
+      "date": "20XX",
+      "awarder": "YOUR_AWARDING_BODY",
+      "summary": "One line on what it was awarded for."
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "YOUR_RESEARCH_INTEREST_AREA",
+      "keywords": ["YOUR_AREA_A", "YOUR_AREA_B"]
+    }
+  ]
+}
