@@ -16,6 +16,10 @@ pagination:
     after: 3 # The number of links after the current page
 ---
 
+{% include todo.liquid label="check" text="<strong>This blog is empty and is in your nav.</strong> Either write a first post, or tell me to delete the page and renumber the nav. An empty blog link on a portfolio reads as abandoned, so it's worth deciding either way." %}
+
+{% include todo.liquid text="If you keep it: the natural first posts are the things you already know cold — 'how we built a wireless behavioural rig in three weeks', or 'synchronising cameras, DAQ and Neuropixels without losing your mind'. Posts live in <code>_posts/</code> as <code>YYYY-MM-DD-title.md</code>. Note <code>_posts/</code> is currently excluded in <code>_config.yml</code> — remove that line before writing." %}
+
 <div class="post">
 
 {% assign blog_name_size = site.blog_name | size %}

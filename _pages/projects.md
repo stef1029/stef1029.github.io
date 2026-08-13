@@ -12,6 +12,10 @@ display_categories: [research, engineering, personal]
 horizontal: false
 ---
 
+{% include todo.liquid label="check" text="<strong>All 7 projects below are real</strong>, taken from your CV — but each page is a scaffold, not a finished writeup. Open each one: the amber boxes say what to write, the blue boxes say which image to add. Nothing here is invented filler." %}
+
+{% include todo.liquid label="image" text="<strong>The cards below have no thumbnails yet</strong>, which is why this grid looks bare. Each project's <code>img:</code> line is commented out in its front matter — add one image per project and this page transforms." %}
+
 <!-- pages/projects.md -->
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}

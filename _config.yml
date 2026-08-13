@@ -249,7 +249,32 @@ exclude:
   - _projects/?_project.md # 9 demo projects; yours are named NN-slug.md
   - _posts/ # demo blog posts (delete this line once you write real ones)
   - _teachings/ # demo course pages (delete this line once you add real ones)
+  # Demo assets. The 12 numbered images alone cost 36 WebP conversions per
+  # build, and relativity.html leaked "Einstein" into the built site.
   - assets/jupyter/blog.ipynb # demo notebook post
+  - assets/html/ # relativity.html iframe demo
+  - assets/audio/ # demo audio embed
+  - assets/video/ # demo video embeds
+  - assets/plotly/ # demo plotly chart
+  - assets/json/table_data.json # demo sortable-table data
+  - assets/rendercv/ # RenderCV config + a demo Albert_Einstein_CV.pdf
+  - assets/img/projects/README.md # notes to self, not for the built site
+  - assets/img/1.jpg
+  - assets/img/2.jpg
+  - assets/img/3.jpg
+  - assets/img/4.jpg
+  - assets/img/5.jpg
+  - assets/img/6.jpg
+  - assets/img/7.jpg
+  - assets/img/8.jpg
+  - assets/img/9.jpg
+  - assets/img/10.jpg
+  - assets/img/11.jpg
+  - assets/img/12.jpg
+  - assets/img/rhino.png
+  - assets/img/prof_pic_color.png # theme's demo portrait; yours is prof_pic.jpg
+  - assets/img/star-history-dark.svg
+  - assets/img/star-history-light.svg
 keep_files:
   - CNAME
   - .nojekyll

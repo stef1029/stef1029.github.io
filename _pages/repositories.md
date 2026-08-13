@@ -2,10 +2,14 @@
 layout: page
 permalink: /repositories/
 title: repositories
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
+description: Public code — behavioural rig control, sensor firmware, stimulation hardware and acquisition tools.
 nav: true
 nav_order: 6
 ---
+
+{% include todo.liquid label="check" text="<strong>Only 6 of your 40 repos are public</strong>, so only those can appear here. <code>hex_behav</code>, <code>Laser-stim-control-board</code>, <code>Camera</code>, <code>ArduinoDAQ2-Due</code>, <code>cohort_visualizer</code> and the analysis notebooks are all private — making the good ones public is the highest-value thing you can do for this site." %}
+
+{% include todo.liquid text="<strong>Every one of your repos has a blank description on GitHub.</strong> The cards below show that description, so they'll all render empty. Add a one-liner to each repo on GitHub — it costs a minute per repo and fixes this page entirely." %}
 
 {% if site.data.repositories.github_users %}
 
