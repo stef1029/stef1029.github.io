@@ -53,9 +53,16 @@ project infrastructure, excluded from the build — see `_upstream/README.md`.
    `_layouts/` here. To override one, create the matching file locally.
 4. **Project filenames must not match `?_project.md`** — that glob is excluded in
    `_config.yml` to hide the theme's nine demo projects.
-5. **Adding a plugin means editing two files** — `Gemfile` *and* the `plugins:`
+5. **Never wrap a Liquid include in an HTML comment.** Liquid executes before
+   HTML is parsed, so `<!-- {% include figure.liquid %} -->` still runs the
+   include, and `figure.liquid`'s output begins with its own `<!-- -->` comment
+   which terminates yours early and spills raw markup onto the page (kramdown
+   then mangles the orphaned `-->` into `–>`). Use `{% comment %}…{% endcomment %}`.
+   Images go through `_includes/img_block.liquid`, which renders a grid when the
+   files exist and a dev-only note listing the missing filenames when they don't.
+6. **Adding a plugin means editing two files** — `Gemfile` *and* the `plugins:`
    list in `_config.yml`. In only one, it is inert with no error.
-6. **Demo content is excluded, not deleted** (`_posts/`, `_news/`, `_books/`,
+7. **Demo content is excluded, not deleted** (`_posts/`, `_news/`, `_books/`,
    `_teachings/`), per al-folio's docs, so theme upgrades don't conflict. The
    blog and teaching pages are consequently live but empty.
 

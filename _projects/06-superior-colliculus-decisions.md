@@ -15,14 +15,12 @@ was built to serve. I developed a behavioural paradigm that dissociates sensory
 input from motor output in a naturalistic, freely moving setting, then used it
 to ask how the superior colliculus contributes to deciding where to move next.
 
-{% include todo.liquid label="image" text="<strong>Task schematic.</strong> For a research project this does more work than any photo — it lets a reader understand the paradigm in five seconds. Save as <code>assets/img/projects/sc-task.png</code>. You likely have one already from a talk or thesis figure." %}
+{% include img_block.liquid eager=true
+   paths="assets/img/projects/sc-task.png"
+   titles="Task schematic"
+   caption="The behavioural task."
+   note="<strong>Task schematic.</strong> For a research project this does more work than any photo — it lets a reader grasp the paradigm in five seconds. You likely have one already from a talk or thesis figure." %}
 
-<!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="img-grid">
-  {% include figure.liquid loading="eager" path="assets/img/projects/sc-task.png" title="Task schematic" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">The behavioural task.</div>
--->
 
 ## The question
 
@@ -42,16 +40,12 @@ Three results from this work:
 
 {% include todo.liquid text="Each bullet needs a paragraph. Specifically — (1) what did the DREADD manipulation do behaviourally: which way did the bias shift and by how much? (2) what were you recording and where? (3) <strong>the confidence result is your headline</strong>: what makes 'confidence' the right interpretation, and which alternative explanations did you rule out?" %}
 
-{% include todo.liquid label="image" text="<strong>Results figures</strong> — behaviour, DREADD effect, ephys. Save as <code>sc-behaviour.png</code>, <code>sc-dreadds.png</code>, <code>sc-ephys.png</code> and uncomment the grid below. Panels from the manuscript figures are fine." %}
+{% include img_block.liquid cols="3"
+   paths="assets/img/projects/sc-behaviour.png, assets/img/projects/sc-dreadds.png, assets/img/projects/sc-ephys.png"
+   titles="Behaviour | DREADDs | Ephys"
+   caption="Caption each panel."
+   note="<strong>Results figures</strong> — behaviour, DREADD effect, ephys. Panels lifted from the manuscript figures are fine." %}
 
-<!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="img-grid img-grid-3">
-  {% include figure.liquid path="assets/img/projects/sc-behaviour.png" title="Behaviour" class="img-fluid rounded z-depth-1" %}
-  {% include figure.liquid path="assets/img/projects/sc-dreadds.png" title="DREADDs" class="img-fluid rounded z-depth-1" %}
-  {% include figure.liquid path="assets/img/projects/sc-ephys.png" title="Ephys" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Caption each panel.</div>
--->
 
 ## Methods
 

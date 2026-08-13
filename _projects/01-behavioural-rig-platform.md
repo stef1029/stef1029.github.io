@@ -8,24 +8,12 @@ category: engineering
 related_publications: false
 ---
 
-{% include todo.liquid label="image" text="<strong>Card thumbnail.</strong> Add <code>assets/img/projects/rig-thumb.jpg</code>, then uncomment the <code>img:</code> line in this file's front matter. Without it this project has no picture on the /projects/ grid." %}
+{% include img_block.liquid eager=true
+   paths="assets/img/projects/rig-hero.jpg"
+   titles="The behavioural rig"
+   caption="One line describing what the reader is looking at."
+   note="<strong>Hero shot of the rig.</strong> Any angle showing the whole setup." %}
 
-The experimental platform I built during my PhD to study how mice decide where
-to move. It combines automated behavioural rigs, wireless trial initiation, and
-synchronised acquisition of behaviour, video and electrophysiology. It began as
-a means to an end for my own experiments and is now adopted across multiple
-projects in the lab.
-
-{% include todo.liquid label="review" text="I wrote the paragraph above from your CV bullets. Reword it in your own voice — it's the first thing anyone reads on this page." %}
-
-{% include todo.liquid label="image" text="<strong>Hero shot of the rig.</strong> Save as <code>assets/img/projects/rig-hero.jpg</code> and uncomment the block below in the source." %}
-
-<!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="img-grid">
-  {% include figure.liquid loading="eager" path="assets/img/projects/rig-hero.jpg" title="The behavioural rig" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">One line describing what the reader is looking at.</div>
--->
 
 ## The problem
 
@@ -41,16 +29,12 @@ The platform's main elements:
 
 {% include todo.liquid text="Expand each bullet above into a sentence or two of real detail. Specifically: what does a single trial actually look like from the mouse's point of view? Why load cells rather than a beam break or lever? What did automating trial initiation buy you?" %}
 
-{% include todo.liquid label="image" text="<strong>2–3 images work well here</strong> — CAD render, bare electronics, assembled rig in use. Save as <code>rig-cad.jpg</code>, <code>rig-pcb.jpg</code>, <code>rig-built.jpg</code> in <code>assets/img/projects/</code> and uncomment the grid below." %}
+{% include img_block.liquid cols="3"
+   paths="assets/img/projects/rig-cad.jpg, assets/img/projects/rig-pcb.jpg, assets/img/projects/rig-built.jpg"
+   titles="CAD | Electronics | Assembled"
+   caption="Left to right: ..."
+   note="<strong>Three-up grid</strong> — CAD render, bare electronics, assembled rig in use." %}
 
-<!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="img-grid img-grid-3">
-  {% include figure.liquid path="assets/img/projects/rig-cad.jpg" title="CAD" class="img-fluid rounded z-depth-1" %}
-  {% include figure.liquid path="assets/img/projects/rig-pcb.jpg" title="Electronics" class="img-fluid rounded z-depth-1" %}
-  {% include figure.liquid path="assets/img/projects/rig-built.jpg" title="Assembled" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Left to right: ...</div>
--->
 
 ## Design decisions worth explaining
 

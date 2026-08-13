@@ -8,22 +8,12 @@ category: engineering
 related_publications: false
 ---
 
-{% include todo.liquid label="image" text="<strong>Card thumbnail.</strong> A cropped piece of the architecture diagram works well for an abstract project like this. Add <code>assets/img/projects/daq-thumb.png</code> and uncomment the <code>img:</code> line." %}
+{% include img_block.liquid eager=true
+   paths="assets/img/projects/daq-architecture.png"
+   titles="System architecture"
+   caption="Data flow from acquisition through synchronisation to storage."
+   note="<strong>This project needs a DIAGRAM more than a photo.</strong> Boxes for each data source, arrows into the sync layer, then storage and analysis. draw.io or Inkscape is fine — it will be the most useful image on the whole site." %}
 
-The acquisition layer underneath the behavioural platform: a general-purpose
-architecture for synchronising behavioural events, multi-camera video and
-electrophysiology onto a common clock, plus the pipelines that take raw streams
-through to analysis-ready data. The high-speed video side is written in C++
-against FLIR's Spinnaker API.
-
-{% include todo.liquid label="image" text="<strong>This project needs a DIAGRAM more than a photo.</strong> Boxes for each data source, arrows into the sync layer, then storage and analysis. draw.io or Inkscape is fine. Save as <code>assets/img/projects/daq-architecture.png</code> — it will be the single most useful image on the whole site." %}
-
-<!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="img-grid">
-  {% include figure.liquid loading="eager" path="assets/img/projects/daq-architecture.png" title="System architecture" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Data flow from acquisition through synchronisation to storage.</div>
--->
 
 ## The synchronisation problem
 

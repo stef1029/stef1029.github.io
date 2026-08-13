@@ -44,8 +44,7 @@ Copy `_projects/01-cryogenic-fatigue-rig.md` — it is commented as a template.
 - `img:` is the thumbnail on the projects grid; `importance:` sets the order
   (lower first); `category:` must match a value in `display_categories:` in
   `_pages/projects.md`.
-- Use `{% include figure.liquid path="assets/img/x.jpg" %}` for images rather
-  than raw `<img>` — it generates responsive WebP variants automatically.
+- Images use `{% include img_block.liquid %}` — see below.
 - Image grids use our own classes: `<div class="img-grid img-grid-3">` (or
   `img-grid-2`, or just `img-grid` for one full-width image).
 
@@ -57,6 +56,33 @@ rule ever exists, and the layout silently does nothing. Bootstrap classes are
 dead too. Add real rules at the bottom of `assets/css/main.scss` instead; that
 file shadows the theme's copy and already defines `.cv-entry`, `.cv-dates`,
 `.cv-org`, `.cv-skill` and `.img-grid`.
+
+## Adding images to a project
+
+**Just drop the file into `assets/img/projects/` and it appears.** Nothing to
+uncomment. Each project page already declares its image blocks; while a file is
+missing you see a blue note naming the exact filename to add, and once it exists
+the image replaces the note automatically.
+
+To declare a new one:
+
+```liquid
+{% include img_block.liquid cols="3"
+   paths="assets/img/projects/a.jpg, assets/img/projects/b.jpg, assets/img/projects/c.jpg"
+   titles="First | Second | Third"
+   caption="Left to right: ..."
+   note="What to photograph, shown while the files are missing." %}
+```
+
+`cols` is 1, 2 or 3 (defaults to the number of images). Add `eager=true` for a
+hero image at the top of a page. WebP variants at 480/800/1400px are generated
+automatically, so upload the full-resolution original and don't pre-resize.
+
+> **Never wrap `figure.liquid` or `img_block.liquid` in an HTML comment.**
+> Liquid runs before HTML is parsed, so the include still executes, and the
+> markup it emits contains its own `<!-- -->` comment which closes yours early
+> and dumps raw HTML onto the page. Use `{% comment %} … {% endcomment %}` if
+> you really need to disable a block.
 
 ## Adding a publication
 

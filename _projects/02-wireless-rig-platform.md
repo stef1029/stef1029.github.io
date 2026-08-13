@@ -8,23 +8,12 @@ category: engineering
 related_publications: false
 ---
 
-{% include todo.liquid label="image" text="<strong>Card thumbnail.</strong> Add <code>assets/img/projects/wireless-thumb.jpg</code> and uncomment the <code>img:</code> line in the front matter." %}
+{% include img_block.liquid eager=true
+   paths="assets/img/projects/wireless-hero.jpg"
+   titles="The wireless rig hardware"
+   caption="Caption."
+   note="<strong>Hero shot</strong> — the board, or the rig in use." %}
 
-The second-generation platform, developed during my postdoc: a fully wireless
-replacement for the tethered [behavioural rig system]({{ '/projects/01-behavioural-rig-platform/' | relative_url }}).
-I designed the custom PCBs and wrote the MCU firmware (STM32, BLE), taking it
-from concept to manufactured hardware in a matter of weeks.
-
-{% include todo.liquid label="review" text="Written from your CV bullets — reword in your own voice." %}
-
-{% include todo.liquid label="image" text="<strong>Hero shot</strong> — the board, or the rig in use. Save as <code>assets/img/projects/wireless-hero.jpg</code>." %}
-
-<!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="img-grid">
-  {% include figure.liquid loading="eager" path="assets/img/projects/wireless-hero.jpg" title="The wireless rig hardware" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Caption.</div>
--->
 
 ## Why go wireless
 
@@ -34,15 +23,12 @@ from concept to manufactured hardware in a matter of weeks.
 
 {% include todo.liquid text="The board: MCU configuration, what's on it, and the constraints you designed against (size, power budget, battery life, radio range). Also — why STM32 and BLE here, when the first generation used ESP32?" %}
 
-{% include todo.liquid label="image" text="<strong>PCB layout render + assembled board</strong> side by side is the standard shot for this and always looks good. Save as <code>wireless-pcb-layout.jpg</code> and <code>wireless-pcb-built.jpg</code>." %}
+{% include img_block.liquid cols="2"
+   paths="assets/img/projects/wireless-pcb-layout.jpg, assets/img/projects/wireless-pcb-built.jpg"
+   titles="PCB layout | Assembled board"
+   caption="Left: layout. Right: as assembled."
+   note="<strong>PCB layout render + assembled board</strong> side by side — the standard shot for this, and it always looks good." %}
 
-<!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="img-grid img-grid-2">
-  {% include figure.liquid path="assets/img/projects/wireless-pcb-layout.jpg" title="PCB layout" class="img-fluid rounded z-depth-1" %}
-  {% include figure.liquid path="assets/img/projects/wireless-pcb-built.jpg" title="Assembled board" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Left: layout. Right: as assembled.</div>
--->
 
 ## Firmware
 

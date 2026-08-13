@@ -8,20 +8,12 @@ category: engineering
 related_publications: false
 ---
 
-{% include todo.liquid label="image" text="<strong>Card thumbnail.</strong> Add <code>assets/img/projects/imu-thumb.jpg</code> and uncomment the <code>img:</code> line in the front matter." %}
+{% include img_block.liquid eager=true
+   paths="assets/img/projects/imu-hero.jpg"
+   titles="The wearable sensor"
+   caption="Include something for scale."
+   note="<strong>Hero shot — photograph it next to a coin or ruler.</strong> The size constraint is the whole story here, and one photo sells it better than three paragraphs." %}
 
-A wireless motion sensor small and light enough to be worn by a freely moving
-mouse — a 9-DOF IMU with magnetometer, designed and built during my postdoc to
-capture head and body movement during natural behaviour.
-
-{% include todo.liquid label="image" text="<strong>Hero shot — photograph it next to a coin or ruler.</strong> The size constraint is the whole story of this project and one photo sells it better than three paragraphs. Save as <code>assets/img/projects/imu-hero.jpg</code>." %}
-
-<!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="img-grid">
-  {% include figure.liquid loading="eager" path="assets/img/projects/imu-hero.jpg" title="The wearable sensor" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Include something for scale.</div>
--->
 
 ## The constraint
 
@@ -31,16 +23,12 @@ capture head and body movement during natural behaviour.
 
 {% include todo.liquid text="Sensor choice and why 9-DOF; what the magnetometer specifically buys you over accelerometer + gyro alone; how it mounts to the animal; power and runtime; how data gets off the device." %}
 
-{% include todo.liquid label="image" text="<strong>Three-up grid</strong> — bare board, enclosure or CAD, sensor being worn. Save as <code>imu-board.jpg</code>, <code>imu-cad.jpg</code>, <code>imu-worn.jpg</code>." %}
+{% include img_block.liquid cols="3"
+   paths="assets/img/projects/imu-board.jpg, assets/img/projects/imu-cad.jpg, assets/img/projects/imu-worn.jpg"
+   titles="Board | Housing | In use"
+   caption="Caption each panel."
+   note="<strong>Three-up grid</strong> — bare board, enclosure or CAD, sensor being worn." %}
 
-<!-- UNCOMMENT WHEN THE IMAGES EXIST:
-<div class="img-grid img-grid-3">
-  {% include figure.liquid path="assets/img/projects/imu-board.jpg" title="Board" class="img-fluid rounded z-depth-1" %}
-  {% include figure.liquid path="assets/img/projects/imu-cad.jpg" title="Housing" class="img-fluid rounded z-depth-1" %}
-  {% include figure.liquid path="assets/img/projects/imu-worn.jpg" title="In use" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Caption each panel.</div>
--->
 
 ## Calibration and validation
 

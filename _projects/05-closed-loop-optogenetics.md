@@ -8,20 +8,12 @@ category: engineering
 related_publications: false
 ---
 
-{% include todo.liquid label="image" text="<strong>Card thumbnail.</strong> Add <code>assets/img/projects/opto-thumb.jpg</code> and uncomment the <code>img:</code> line in the front matter." %}
+{% include img_block.liquid eager=true
+   paths="assets/img/projects/opto-hero.jpg"
+   titles="The system in use"
+   caption="Caption."
+   note="<strong>Hero shot</strong> — the stim board, or a screenshot of the live visualisation UI." %}
 
-An integrated optogenetics system that closes the loop between what the animal
-is doing and when stimulation is delivered: IMU-based head tracking feeding
-automated laser control, with real-time visualisation of the incoming data.
-
-{% include todo.liquid label="image" text="<strong>Hero shot</strong> — the stim board, or a screenshot of the live visualisation UI. Save as <code>assets/img/projects/opto-hero.jpg</code>." %}
-
-<!-- UNCOMMENT WHEN THE IMAGE EXISTS:
-<div class="img-grid">
-  {% include figure.liquid loading="eager" path="assets/img/projects/opto-hero.jpg" title="The system in use" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">Caption.</div>
--->
 
 ## Why closed-loop
 
