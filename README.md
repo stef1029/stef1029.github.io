@@ -1,7 +1,7 @@
 # Personal site
 
 Built on [al-folio](https://github.com/alshedivat/al-folio) v1.x, deployed to
-GitHub Pages at `https://YOURUSERNAME.github.io`.
+GitHub Pages at `https://stef1029.github.io`.
 
 ## Run it locally
 

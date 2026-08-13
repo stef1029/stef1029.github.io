@@ -68,6 +68,6 @@ particularly from anyone who wants to add a Linux industrial I/O driver.
 
 ## Links
 
-- [Hardware repository](https://github.com/YOURUSERNAME/REPO) — KiCad project, BOM and fabrication outputs
-- [Firmware and Python client](https://github.com/YOURUSERNAME/REPO) — Rust firmware plus the host library
-- [Documentation](https://YOURUSERNAME.github.io/REPO) — wiring, calibration procedure and API reference
+- [Hardware repository](https://github.com/stef1029/REPO) — KiCad project, BOM and fabrication outputs
+- [Firmware and Python client](https://github.com/stef1029/REPO) — Rust firmware plus the host library
+- [Documentation](https://stef1029.github.io/REPO) — wiring, calibration procedure and API reference

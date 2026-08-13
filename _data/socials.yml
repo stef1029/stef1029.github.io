@@ -7,7 +7,7 @@
 cv_pdf: /assets/pdf/cv.pdf
 
 email: YOUR_EMAIL
-github_username: YOURUSERNAME
+github_username: stef1029
 linkedin_username: YOUR_LINKEDIN_SLUG # the bit after /in/ in your profile URL
 scholar_userid: YOUR_SCHOLAR_ID # the `user=` value in your Scholar profile URL
 orcid_id: # e.g. 0000-0002-1825-0097 — delete this line if you have no ORCID

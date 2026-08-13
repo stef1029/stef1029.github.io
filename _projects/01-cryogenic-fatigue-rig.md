@@ -109,6 +109,6 @@ of them with `md:col-span-2`.
 
 ## Links
 
-- [Source code and analysis notebooks](https://github.com/YOURUSERNAME/REPO) — rig control firmware, DAQ pipeline, and the plotting scripts behind the figures above
+- [Source code and analysis notebooks](https://github.com/stef1029/REPO) — rig control firmware, DAQ pipeline, and the plotting scripts behind the figures above
 - [Paper: *Cryogenic fatigue of laser powder bed fusion Ti-6Al-4V*](https://doi.org/YOUR_DOI) — the full study
 - [Dataset on Zenodo](https://zenodo.org/YOUR_RECORD) — raw cycle counts and fractography images

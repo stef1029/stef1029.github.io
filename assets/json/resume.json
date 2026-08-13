@@ -14,7 +14,7 @@
     "image": "",
     "email": "YOUR_EMAIL",
     "phone": "",
-    "url": "https://YOURUSERNAME.github.io",
+    "url": "https://stef1029.github.io",
     "summary": "Engineer finishing a PhD in YOUR_FIELD at YOUR_UNIVERSITY, working on YOUR_RESEARCH_TOPIC_IN_ONE_LINE. Research spans YOUR_AREA_A and YOUR_AREA_B, combining YOUR_METHOD_A with YOUR_METHOD_B.",
     "location": {
       "city": "YOUR_CITY",
@@ -24,8 +24,8 @@
     "profiles": [
       {
         "network": "GitHub",
-        "username": "YOURUSERNAME",
-        "url": "https://github.com/YOURUSERNAME"
+        "username": "stef1029",
+        "url": "https://github.com/stef1029"
       },
       {
         "network": "LinkedIn",

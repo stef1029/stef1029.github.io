@@ -64,5 +64,5 @@ are included.
 
 ## Links
 
-- [Source code](https://github.com/YOURUSERNAME/REPO) — optimiser, unit cell library and the homogenisation scripts
+- [Source code](https://github.com/stef1029/REPO) — optimiser, unit cell library and the homogenisation scripts
 - [Paper: *Density-graded lattice optimisation for additive manufacture*](https://doi.org/YOUR_DOI)
