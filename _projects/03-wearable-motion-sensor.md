@@ -19,9 +19,24 @@ related_publications: false
 
 {% include todo.liquid text="<strong>Give the actual numbers</strong> — mass and dimensions a mouse can wear without altering its behaviour. Then show how that one budget cascaded into every other decision: battery, antenna, enclosure, mounting. This is the most impressive part of the project to any engineer reading it." %}
 
-## Design
+## System architecture
 
-{% include todo.liquid text="Sensor choice and why 9-DOF; what the magnetometer specifically buys you over accelerometer + gyro alone; how it mounts to the animal; power and runtime; how data gets off the device." %}
+**On the sensor** — three separate I²C parts on a SparkFun 9DOF stick, fused in
+firmware:
+
+- ADXL345 accelerometer (±16 g), HMC5883L magnetometer, MPU-3050 gyroscope
+- **DCM (direction cosine matrix) sensor fusion** producing yaw, pitch and roll at **50 Hz**
+- A 10 ms sync pulse on every sample, so orientation lines up with video and the DAQ
+- Simple `#`-prefixed serial command protocol at 57600 baud — `#s` start, `#e` stop
+
+**On the host** — a Python layer handling acquisition, live display and storage:
+
+- Live angle visualisation while recording, so a bad mount is caught immediately rather than after the session
+- Rotation matrix applied to bring the sensor frame into the animal's frame
+- Saves to both JSON and HDF5, with reliability reporting on dropped samples
+- Terminates on an external signal file, which is how it stays in step with the camera and DAQ
+
+{% include todo.liquid text="The repo covers the electronics and firmware but not the physical side, which is the interesting half: <strong>mass and dimensions</strong>, how it mounts to the animal, battery/runtime, and radio range." %}
 
 {% include img_block.liquid cols="3"
    paths="assets/img/projects/imu-board.jpg, assets/img/projects/imu-cad.jpg, assets/img/projects/imu-worn.jpg"

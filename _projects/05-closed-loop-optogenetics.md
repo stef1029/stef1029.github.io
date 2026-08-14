@@ -19,9 +19,20 @@ related_publications: false
 
 {% include todo.liquid text="What you gain by triggering on the animal's own behaviour instead of a fixed schedule — and specifically what question this made answerable that open-loop stimulation could not. Worth writing so a non-specialist can follow it." %}
 
-## The loop
+## System architecture
 
-{% include todo.liquid text="Walk through one cycle: IMU sample → head pose estimate → trigger condition met → laser fires. <strong>What is the end-to-end latency, and what did you have to do to hit it?</strong> Latency is the entire engineering story on this page." %}
+Timing is split from control, so the host never has to be real-time:
+
+- **Python (`laser_control.py`)** owns the Cobolt 06-MLD laser over `pycobolt` — power, arming, safety state
+- **Arduino firmware** owns pulse timing — trigger on pin 7, status LED on pin 13
+- A three-command serial protocol: `p` push parameters, `s` start sequence, `e` emergency stop
+- Parameters are pushed as one packed string — durations, cycle count, stimulation interval, pulse on/off times — so a whole stimulation pattern is defined up front and executed without host involvement
+- A `LASER_SYNC` TTL back to the [DAQ]({{ '/projects/04-multimodal-daq/' | relative_url }}) records exactly when light was delivered
+
+The reason for the split: pulse timing is deterministic on the microcontroller,
+while the host stays free for tracking and visualisation without jitter risk.
+
+{% include todo.liquid text="The repos show the stimulation side but not the closed-loop trigger path. Worth adding: how a head-pose estimate becomes a trigger decision, and the <strong>end-to-end latency</strong> from IMU sample to laser firing — that number is the whole engineering story on this page." %}
 
 {% include todo.liquid label="image" text="A <strong>timing diagram or latency histogram</strong> would be the most convincing figure here — far more than a photo of the hardware." %}
 

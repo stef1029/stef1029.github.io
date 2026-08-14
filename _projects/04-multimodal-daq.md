@@ -21,7 +21,29 @@ related_publications: false
 
 ## Architecture
 
-{% include todo.liquid text="How the pieces fit: what acts as the timing reference, how each stream gets stamped, what happens on a dropped frame or sample. Explain what makes it <em>general-purpose</em> rather than bespoke to one experiment — that's why it spread across the lab, and it's the strongest thing about the project." %}
+**Acquisition board** — an Arduino Due, chosen for USB throughput, monitoring
+35 digital lines and transmitting only state *changes* rather than polling:
+
+- 6 × spotlights, sensors, buzzers, LEDs and valves — one set per port of the hexagonal arena
+- `GO_CUE` / `NOGO_CUE` trial signals
+- Three dedicated sync lines: `CAMERA_SYNC`, `HEADSENSOR_SYNC`, `LASER_SYNC`
+
+Those three sync pins are the backbone of the whole system: every other stream
+is aligned by TTL against the same board.
+
+**Host side (DAQLink)** —
+
+- Asynchronous serial with binary message parsing and explicit error handling
+- Incremental NumPy backups *during* acquisition, so a crash mid-session doesn't cost the session
+- Archive to HDF5 plus JSON sidecars
+- Signal-file coordination with companion processes, so the camera and DAQ start and stop together
+
+**Video** — a separate C++ application (`behaviour_camera`) built on the
+Teledyne Spinnaker SDK with OpenCV and GLFW, dependencies pinned through vcpkg
+and CMake. It runs as its own process and is brought into step via the
+signal-file handshake and `CAMERA_SYNC`.
+
+{% include todo.liquid text="Two things the repos don't answer: what <strong>timing precision</strong> you actually achieve between streams, and what happens when a frame or sample drops. Both are the crux of the project — worth a bullet each." %}
 
 ## High-speed video
 

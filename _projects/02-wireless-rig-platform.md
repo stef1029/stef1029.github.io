@@ -19,9 +19,36 @@ related_publications: false
 
 {% include todo.liquid text="What did the tether actually cost you — cable drag affecting the behaviour itself, setup time per session, animals tangling, a hard limit on arena size? Be concrete; this is the justification for rebuilding a working system from scratch." %}
 
-## Hardware
+## System architecture
 
-{% include todo.liquid text="The board: MCU configuration, what's on it, and the constraints you designed against (size, power budget, battery life, radio range). Also — why STM32 and BLE here, when the first generation used ESP32?" %}
+Three board types, named after penguins, plus a Python host application:
+
+| Name | Role | MCU |
+| --- | --- | --- |
+| **Korora** | Floating platform hub | nRF52840 |
+| **Fairy** | Reward port — up to six per system | STM32G071 |
+| **Galapagos** | Static DAQ TTL sync | nRF54L15 |
+| **Adelie** | Host application | Python |
+
+How they talk to each other:
+
+- **Adelie ⇄ Korora** over BLE — commands down, records up
+- **Korora ⇄ Fairy boards** over RS485, with a **4 Hz sync** broadcast from the hub
+- **Korora ⇄ Galapagos** over BLE, with a TTL loopback closing the timing path to the DAQ
+
+Four protocol layers, kept deliberately separate:
+
+- **Transport** — frame structure over whichever medium is carrying it (UART or BLE)
+- **Magellan** — assigns logical addresses to Fairy boards, so ports are interchangeable
+- **Adelie** — commands out to peripherals and TTL generation
+- **Fairy** — the record format that ends up in analysis
+
+Board count is a build-time constant (`FAIRY_MAX_BOARDS`, default six) rather
+than hard-coded, so the same firmware serves a different port count.
+
+{% include todo.liquid text="Two things the repo doesn't tell me, both worth a bullet each: the <strong>power/battery budget</strong> and runtime per session, and <strong>why RS485 for the hub↔port link</strong> rather than doing everything over BLE. The mixed transport is the most interesting design decision here." %}
+
+{% include todo.liquid text="Also worth stating: why STM32G071 for the ports and nRF chips for the radio roles, when the first-generation rig used ESP32." %}
 
 {% include img_block.liquid cols="2"
    paths="assets/img/projects/wireless-pcb-layout.jpg, assets/img/projects/wireless-pcb-built.jpg"
@@ -40,8 +67,7 @@ related_publications: false
 
 ## Links
 
-{% include todo.liquid label="check" text="Still no repo matched to this project. (Earlier I guessed <code>trilab-floating-platform</code> — that's now resolved as the head-fixed floating platform from your thesis Chapter 2, not this.) Point me at the right repo, or add it below." %}
-
-- **Firmware:** *(not yet linked)*
-- **Hardware design files:** *(not yet linked)*
+- **Firmware, electronics and host app:** [trilab-floating-platform](https://github.com/stef1029/trilab-floating-platform) — public. KiCad projects, BOMs and fabrication outputs under `electronics/`; firmware for all three board types under `firmware/`.
 - **Predecessor:** [automated behavioural rig platform]({{ '/projects/01-behavioural-rig-platform/' | relative_url }})
+
+{% include todo.liquid label="check" text="<strong>I've had this repo wrong twice — please confirm.</strong> I first guessed <code>trilab-floating-platform</code> might be this project, then reassigned it to the Chapter 2 floating platform. Its firmware README (Korora / Fairy / Galapagos, STM32G071, BLE, six reward ports) clearly matches the <em>wireless successor</em> on your CV, so I've assigned it here and removed it from the superior colliculus page. If the Chapter 2 prototype is a different repo, say so and I'll split them." %}

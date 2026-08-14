@@ -29,6 +29,22 @@ The platform's main elements:
 
 {% include todo.liquid text="Expand each bullet above into a sentence or two of real detail. Specifically: what does a single trial actually look like from the mouse's point of view? Why load cells rather than a beam break or lever? What did automating trial initiation buy you?" %}
 
+## System architecture
+
+Control software is **HexControl**, a Python workspace split into one
+application and three hardware libraries, each installed editable so a rig can
+be debugged without reinstalling:
+
+- **BehavLink** — serial protocol for the rig microcontroller: LEDs, valves, sensors and GPIO
+- **DAQLink** — the acquisition path (see the [multi-modal DAQ writeup]({{ '/projects/04-multimodal-daq/' | relative_url }}))
+- **ScalesLink** — calibrated weight readings, background-threaded with CSV logging; supports both wired and wireless scale rigs
+
+A few decisions worth calling out:
+
+- **Rigs are described in config, not code** — `rigs_template.yaml` defines each rig and its peripherals, and `board_registry.json` maps device serial numbers to roles, so swapping a board doesn't mean editing source
+- **The GUI runs several rigs at once** — built with DearPyGui, one panel per rig, each carrying the full Setup → Running → Post-Session workflow
+- **Autotraining and simulation are first-class** — the package ships `autotraining/`, `simulation/` and `protocols/` alongside the live control code, so behaviour can be developed without an animal on the rig
+
 {% include img_block.liquid cols="3"
    paths="assets/img/projects/rig-cad.jpg, assets/img/projects/rig-pcb.jpg, assets/img/projects/rig-built.jpg"
    titles="CAD | Electronics | Assembled"
