@@ -10,12 +10,14 @@
 repo_description_lines_max: 2
 
 # ONLY PUBLIC REPOS RENDER. The stats service fetches these anonymously, so a
-# private repo shows as a broken/empty card. Listed most-recently-updated first
-# (as of 14 Aug 2026).
+# private repo shows as a broken/empty card.
 #
-# NOTE: every one of these still has a blank description on GitHub, and the
-# cards below display that description. Adding a one-liner to each repo on
-# GitHub is the single cheapest improvement available to this page.
+# Ordered by genuine code activity (most recent first, as of 14 Aug 2026) rather
+# than GitHub's `updatedAt`, which counts metadata edits too — setting all seven
+# descriptions on 14 Aug reset that field across the board.
+#
+# All seven now carry a description on GitHub, which is what the cards display.
+# Keep them updated with `gh repo edit stef1029/<name> --description "..."`.
 github_repos:
   - stef1029/trilab-floating-platform
   - stef1029/HexControl
