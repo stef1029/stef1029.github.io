@@ -110,3 +110,14 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* img_block.liquid's `width` param sets an inline max-width to stop near-square
+   diagrams filling the full column on a desktop. On a phone that same
+   percentage would be unreadably small, so below the md breakpoint the cap is
+   dropped and images go back to full width. */
+@media (max-width: 767px) {
+  .img-grid[style],
+  .caption[style] {
+    max-width: 100% !important;
+  }
+}

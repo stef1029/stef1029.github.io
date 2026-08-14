@@ -28,6 +28,9 @@
     titles   - pipe-separated alt/title text, one per image (optional)
     caption  - caption shown under the grid (optional)
     cols     - 1, 2 or 3 columns at md and up (default: number of paths, max 3)
+    width    - cap the block's width and centre it, e.g. width="50%" or "420px".
+               Omit for full content width. Useful for near-square diagrams,
+               which look enormous at full width on a desktop screen.
     eager    - true to load the first image eagerly (use for a hero image)
     note     - text for the dev-only note shown while images are missing
 
@@ -54,7 +57,8 @@
 {% if _missing == "" %}
   {% assign _cols = include.cols | default: _paths.size %}
   {% if _cols > 3 %}{% assign _cols = 3 %}{% endif %}
-  <div class="img-grid img-grid-{{ _cols }}">
+  {% capture _style %}{% if include.width %}max-width:{{ include.width }};margin-left:auto;margin-right:auto;{% endif %}{% endcapture %}
+  <div class="img-grid img-grid-{{ _cols }}"{% if include.width %} style="{{ _style }}"{% endif %}>
     {% for _p in _paths %}
       {% assign _clean = _p | strip %}
       {% assign _t = _titles[forloop.index0] | default: "" | strip %}
@@ -65,7 +69,7 @@
       {% endif %}
     {% endfor %}
   </div>
-  {% if include.caption %}<div class="caption">{{ include.caption }}</div>{% endif %}
+  {% if include.caption %}<div class="caption"{% if include.width %} style="{{ _style }}"{% endif %}>{{ include.caption }}</div>{% endif %}
 {% else %}
   {% capture _note %}{{ include.note }} <br><em>Add:</em> {{ _missing }}<br><em>They appear here automatically — nothing to uncomment.</em>{% endcapture %}
   {% include todo.liquid label="image" text=_note %}

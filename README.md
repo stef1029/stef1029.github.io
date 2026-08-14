@@ -78,6 +78,11 @@ To declare a new one:
 hero image at the top of a page. WebP variants at 480/800/1400px are generated
 automatically, so upload the full-resolution original and don't pre-resize.
 
+Add `width="45%"` (or `width="420px"`) to cap a block's width and centre it —
+worth doing for near-square diagrams, which look enormous at full column width
+on a desktop. The cap is automatically dropped below 768px so images stay
+readable on a phone.
+
 > **Never wrap `figure.liquid` or `img_block.liquid` in an HTML comment.**
 > Liquid runs before HTML is parsed, so the include still executes, and the
 > markup it emits contains its own `<!-- -->` comment which closes yours early

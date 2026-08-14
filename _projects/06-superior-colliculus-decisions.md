@@ -14,7 +14,7 @@ My PhD work, in [Marco Tripodi's group](https://www.tripodilab.org/) at the MRC
 LMB: how does the brain decide *where* to move next, and what does the superior
 colliculus contribute to that decision?
 
-{% include img_block.liquid eager=true
+{% include img_block.liquid eager=true width="45%"
    paths="assets/img/projects/sc-task.png"
    titles="Task schematic"
    caption="The six-choice orienting task."
@@ -78,7 +78,7 @@ whole-body movement. (Strictly this is a *localisation* task rather than an
 orienting one — the measure is which port was chosen, not the kinematics of the
 turn, though those remain available for later analysis.)
 
-{% include img_block.liquid
+{% include img_block.liquid width="50%"
    paths="assets/img/projects/sc-trial-structure.png"
    titles="Trial structure"
    caption="A trial: the mouse self-initiates from the centre, a cue marks one of six locations, and the choice is registered at the port it touches." %}
