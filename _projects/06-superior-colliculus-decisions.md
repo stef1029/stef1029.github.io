@@ -78,6 +78,11 @@ whole-body movement. (Strictly this is a *localisation* task rather than an
 orienting one — the measure is which port was chosen, not the kinematics of the
 turn, though those remain available for later analysis.)
 
+{% include img_block.liquid
+   paths="assets/img/projects/sc-trial-structure.png"
+   titles="Trial structure"
+   caption="A trial: the mouse self-initiates from the centre, a cue marks one of six locations, and the choice is registered at the port it touches." %}
+
 Getting there took a detour through a head-fixed floating platform, intended to
 preserve rotational freedom while keeping the animal fixed, before pivoting to
 the freely moving arena. The engineering behind the final system is written up
