@@ -22,117 +22,87 @@ colliculus contribute to that decision?
 
 ## The problem
 
-If a sound comes from your left at the same moment something moves on your
-right, you cannot turn both ways. The nervous system has to pick one. Doing so
-means weighing how relevant and how urgent each stimulus is, and committing to a
-single target.
-
-That is harder than it sounds, because the senses do not agree on a coordinate
-system. Vision encodes space relative to the retina, hearing relative to the
-head, touch relative to the body. Before anything can be compared, these have to
-be converted into a common frame — and then into a movement.
+If a sound comes from your left as something moves on your right, you cannot
+turn both ways. The nervous system has to pick one, weighing how relevant and
+how urgent each option is. This is harder than it sounds, because the senses
+don't share a coordinate system: vision encodes space relative to the retina,
+hearing relative to the head, touch relative to the body. All of it has to be
+converted into a common frame before it can become a movement.
 
 ## Why the superior colliculus
 
 The superior colliculus is a midbrain structure that has been solving this
-problem for something like 500 million years, and its organisation is conserved
-from fish to mammals. Escaping a threat can be done by averaging away from
-danger, but approaching a target requires picking one — a winner-take-all
-choice — and the SC appears to be where that competition plays out.
+problem for around 500 million years, conserved from fish to mammals. Escaping a
+threat can be done by averaging away from danger; approaching a target requires
+picking one, and the SC appears to be where that competition is resolved.
 
-It is well placed for it. The SC receives convergent input from essentially
-every sensory modality: retinal projections and descending input from visual
-cortex, sound-localisation signals from the inferior colliculus and auditory
-cortex, and whisker and facial input from the trigeminal nuclei and
-somatosensory cortex. These arrive as topographically aligned maps across a
-layered structure — superficial layers carrying retinotopic visual responses,
-intermediate and deep layers integrating multiple senses and issuing motor
-commands. Vertical connections tie them together, so each column plausibly
-represents both a location in space and the movement needed to get there.
+It receives convergent input from essentially every sensory modality, arranged
+as topographically aligned maps: superficial layers carry retinotopic visual
+responses, while intermediate and deep layers integrate multiple senses and
+issue motor commands. Each column plausibly represents both a location and the
+movement needed to reach it — stimulating a site evokes orienting towards the
+corresponding location, and inactivating it impairs orienting there.
 
-That interpretation is well supported causally: stimulating a site in the SC
-evokes an orienting movement towards the corresponding location, and inactivating
-it impairs orienting to stimuli there.
-
-But the SC is not only a motor structure. Alongside descending projections to
-brainstem and spinal premotor circuits, it sends extensive ascending projections
-to the thalamus. Its neurons show sustained activity in the gap between a target
-appearing and a movement being made, and inactivating the SC disrupts spatial
-attention even when eye movements are dissociated from the attended location.
-This has led to the idea of the SC as a **priority map**: a continuously updated
-representation of how behaviourally relevant each location is, combining
-bottom-up salience with top-down task demands.
+But the SC isn't only motor. Alongside descending projections to brainstem
+premotor circuits, it projects extensively to thalamus; its neurons stay active
+in the gap between a target appearing and a movement being made; and
+inactivating it disrupts spatial attention even when eye movements are
+dissociated from the attended location. Hence the idea of a **priority map** — a
+continuously updated representation of how behaviourally relevant each location
+is, combining bottom-up salience with top-down task demands.
 
 ## The hypothesis
 
-If those two roles — guiding movement and guiding attention — are really the
-same computation, then the SC should maintain a representation of spatial
-priority that *persists after the sensory evidence has gone*, bridging the gap
-between a fleeting cue and the action it eventually justifies.
+If guiding movement and guiding attention are the same computation, the SC
+should maintain a representation of spatial priority that *persists after the
+sensory evidence has gone*, bridging a fleeting cue and the action it justifies.
 
-That framing makes a concrete prediction. Modulating the output of the SC should
-not simply trigger movements. It should bias choices towards spatially cued
-targets while leaving movements that were not spatially cued alone. And neural
+That makes two concrete predictions. Modulating SC output should bias choices
+towards spatially cued targets while leaving uncued movements alone. And neural
 activity should distinguish an identical movement made *because of* a spatial
-cue from one made for some other reason.
-
-## The methodological gap
-
-Testing that in mice meant first solving a behavioural problem.
-
-Most mouse SC work is head-fixed, which buys precise control, high trial counts
-and clean reporting movements — but rules out the coordinated whole-body
-orienting that mice actually do. The alternative is naturalistic freely moving
-behaviour such as escape, prey capture or social orienting, which captures the
-full movement repertoire but suffers from low trial counts, behavioural
-adaptation, disengagement and difficult tracking.
-
-Neither is well suited to asking a question that needs both ethological
-plausibility *and* enough structured trials for circuit dissection.
+cue from one made for another reason.
 
 ## The task
 
-I built a **six-choice hexagonal task for freely moving mice**. A brief cue
+Testing this in mice meant first solving a behavioural problem. Most mouse SC
+work is head-fixed, which buys control and trial counts but rules out the
+whole-body orienting mice actually do. Naturalistic alternatives — escape, prey
+capture, social orienting — capture the movement but bring low trial counts,
+behavioural adaptation and difficult tracking.
+
+So I built a **six-choice hexagonal task for freely moving mice**. A brief cue
 indicates one of six locations, and the mouse reports where it perceived the cue
 by approaching the corresponding port. It keeps the trial structure and temporal
-precision that modern circuit neuroscience needs, while letting the animal
-perform a natural whole-body movement.
+precision circuit neuroscience needs, while letting the animal make a natural
+whole-body movement. (Strictly this is a *localisation* task rather than an
+orienting one — the measure is which port was chosen, not the kinematics of the
+turn, though those remain available for later analysis.)
 
-A terminological note, since the literature separates these carefully: this is a
-**localisation** task rather than an orienting task. The mouse reports a
-perceived location by choosing among discrete alternatives, rather than the
-movement itself being the measured variable. In practice the two are tightly
-coupled — a localisation response is almost always preceded by an orienting
-movement — and the paradigm leaves the orienting kinematics available for future
-analysis.
-
-Getting there took a detour. The first approach was a head-fixed floating
-platform intended to preserve rotational freedom while keeping the animal fixed;
-that design was eventually abandoned in favour of the freely moving hexagonal
-arena. The engineering behind the final system is written up separately in the
+Getting there took a detour through a head-fixed floating platform, intended to
+preserve rotational freedom while keeping the animal fixed, before pivoting to
+the freely moving arena. The engineering behind the final system is written up
+separately as the
 [behavioural rig platform]({{ '/projects/01-behavioural-rig-platform/' | relative_url }}).
 
 ## How far it got
 
-Four strands of work, roughly in order:
-
-1. **Building the paradigm** — the iterative design process from floating platform to hexagonal arena, including the rationale behind each decision.
-2. **Characterising the behaviour** — systematically varying cue duration to find the point at which visually guided orienting gives way to memory-based navigation, and mapping the functional visual field. This stage also introduced a mixed-modality variant interleaving spatially informative visual trials with non-spatial auditory trials — the control that makes the central comparison possible.
-3. **Testing causality** — bidirectional chemogenetic modulation of *Pitx2+* output neurons in the intermediate grey layer, a genetically defined SC output population previously characterised in the lab, to ask whether they bias spatial choices.
-4. **Recording during behaviour** — chronic electrophysiology in lateral SC during the mixed visual–auditory task, comparing trial types that produce similar movements from different underlying computations.
+1. **Built the paradigm** — floating platform through to hexagonal arena, with the reasoning behind each design decision.
+2. **Characterised the behaviour** — varying cue duration to find where visually guided orienting gives way to memory-based navigation, and mapping the functional visual field. Added a mixed-modality variant interleaving spatial visual trials with non-spatial auditory ones: the control that makes the central comparison possible.
+3. **Tested causality** — bidirectional chemogenetic modulation of a genetically defined SC output population in the intermediate grey layer, previously characterised in the lab.
+4. **Recorded during behaviour** — chronic electrophysiology in lateral SC during the mixed task, comparing trial types that produce similar movements from different underlying computations.
 
 ## Results
 
 Findings from this work are in preparation for publication. This section will be
 filled in once the preprint is available.
 
-{% include todo.liquid label="check" text="<strong>Findings deliberately withheld</strong> until the preprint is out — your call, agreed as: publish the page, strip the results. The specific findings are preserved in the note below so they aren't lost; these notes render only in local preview, never on the live site." %}
+{% include todo.liquid label="check" text="<strong>Findings deliberately withheld</strong> until the preprint is out — your call, agreed as: publish the page, strip the results. They're preserved in the note below; these render only in local preview, never on the live site." %}
 
-{% include todo.liquid text="<strong>Restore after the preprint.</strong> (1) Chemogenetic excitation of <em>Pitx2+</em> neurons produced contralateral biases affecting both spatially-certain and spatially-uncertain movements, consistent with modulation of baseline spatial priors rather than sensory or motor processing — note the inhibitory experiments had technical limitations worth being upfront about. (2) A subpopulation selectively encoding movements with spatial justification, maintaining activity from shortly after the cue until movement completion. Also worth adding from Chapter 3: the cue-duration threshold and the functionally restricted visual field, which was narrower than anatomy predicts." %}
+{% include todo.liquid text="<strong>Restore after the preprint.</strong> (1) Chemogenetic excitation of <em>Pitx2+</em> neurons produced contralateral biases affecting both spatially-certain and spatially-uncertain movements — consistent with modulation of baseline spatial priors rather than sensory or motor processing. The inhibitory experiments had technical limitations worth being upfront about. (2) A subpopulation selectively encoding movements with spatial justification, holding activity from shortly after the cue until movement completion. Also from Chapter 3: the cue-duration threshold, and the functionally restricted visual field — narrower than anatomy predicts." %}
 
-{% include todo.liquid label="image" text="<strong>Do not add result figures yet</strong> (<code>sc-behaviour.png</code>, <code>sc-dreadds.png</code>, <code>sc-ephys.png</code>) — image blocks self-activate, so they would go public the moment the file lands. The task schematic above is fine now; result panels are not." %}
+{% include todo.liquid label="image" text="<strong>Do not add result figures yet</strong> (<code>sc-behaviour.png</code>, <code>sc-dreadds.png</code>, <code>sc-ephys.png</code>) — image blocks self-activate, so they'd go public the moment the file lands. The task schematic above is fine; result panels are not." %}
 
-{% include todo.liquid label="review" text="<strong>I drafted this page from your thesis introduction</strong> — condensed, citations stripped, and no results stated. Read it as a whole and make the voice yours, particularly the opening and 'The hypothesis' section. Check I haven't overstated anything: I wrote that Pitx2+ neurons were 'previously characterised in the lab', and described the floating platform as 'abandoned' — reword if either is off." %}
+{% include todo.liquid label="review" text="<strong>Condensed from your thesis introduction</strong> — citations stripped, no results stated, and <em>Pitx2</em> removed from the public text (it now reads &quot;a genetically defined SC output population&quot;). Read it through and make the voice yours, especially the opening and the hypothesis. One claim to check: I describe that population as &quot;previously characterised in the lab&quot;." %}
 
 ## Links
 
@@ -142,4 +112,4 @@ filled in once the preprint is available.
 - **Analysis code:** `hex_behav`, `analysis_notebooks`, `DLC_model_training` — **private**
 - **Earlier floating-platform approach:** `trilab-floating-platform` — **private**
 
-{% include todo.liquid text="Add the preprint link the moment it's on bioRxiv, and put the real manuscript title into <code>_bibliography/papers.bib</code>. Also consider linking your thesis here once it's deposited — it's the fullest public account of this work and costs nothing to link." %}
+{% include todo.liquid text="Add the preprint link the moment it's on bioRxiv, and put the real manuscript title into <code>_bibliography/papers.bib</code>. Worth linking your thesis here once it's deposited — it's the fullest public account of this work and costs nothing." %}
