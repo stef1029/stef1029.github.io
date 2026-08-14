@@ -66,7 +66,7 @@ systems I've built.
   </a>
 </p>
 
-{% include todo.liquid text="<strong>Missing social links.</strong> Only email and GitHub show below. Add LinkedIn, Google Scholar and/or ORCID in <code>_data/socials.yml</code> — or delete those lines if you don't want them. Your CV lists no LinkedIn either, worth adding to both." %}
+{% include todo.liquid label="check" text="<strong>Your LaTeX CV has no LinkedIn on it</strong>, but the site now does. Worth adding the URL to <code>cv_writing/cv_13aug26/sections/header.tex</code> so the two agree — and while you're in there, fix the mailto/display email mismatch on line 8." %}
 
 ---
 

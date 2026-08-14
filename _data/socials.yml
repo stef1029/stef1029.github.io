@@ -1,6 +1,6 @@
 # Social links + CV PDF, rendered by the jekyll-socials plugin wherever
 # `social: true` is set (homepage bottom, and the site footer).
-# Icons appear in the order defined here. Comment out anything you don't use.
+# Icons appear in the order defined here.
 # Full key list: https://github.com/george-gca/jekyll-socials
 
 # Downloadable PDF CV. Currently the 13 Aug 2026 build of your LaTeX CV.
@@ -12,10 +12,7 @@ cv_pdf: /assets/pdf/cv.pdf
 email: srogers@mrc-lmb.cam.ac.uk
 
 github_username: stef1029
+linkedin_username: stefan-rogers-coltman-152881180
 
-# TODO: add if you want them shown. Delete any line you don't want.
-linkedin_username: # the bit after /in/ in your profile URL
-scholar_userid: # the `user=` value in your Google Scholar profile URL
-orcid_id: # e.g. 0000-0002-1825-0097
-
-rss_icon: false # blog RSS icon; set true if you want it back
+# Deliberately omitted: scholar_userid, orcid_id, rss_icon.
+# Add a line back here if you ever want that icon to appear.
