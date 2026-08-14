@@ -13,7 +13,7 @@ profile:
     <p>Francis Crick Avenue</p>
     <p>Cambridge CB2 0QH, UK</p>
 
-selected_papers: true # lists papers marked selected={true} in _bibliography/papers.bib
+selected_papers: false # lists papers marked selected={true} in _bibliography/papers.bib
 social: true # social icons + CV PDF link, driven by _data/socials.yml
 
 announcements:
@@ -44,12 +44,13 @@ latest_posts:
 
 I'm a neuroscientist and engineer at the MRC Laboratory of Molecular Biology in
 Cambridge, working in [Marco Tripodi's group](https://www.tripodilab.org/)
-on how the brain decides where to move next.
+on how the brain orients the body towards objects in the world around us.
 
-Most of what I do sits at the boundary between science and engineering. To ask
-the questions I wanted to ask, I had to build the instruments first — behavioural
-rigs, wireless sensors, custom PCBs and firmware, synchronised acquisition
-systems for video and electrophysiology. That platform started as a means to an
+Most of what I do sits at the boundary between science and engineering. To address
+the questions I wanted to ask, I had to build the instruments first -- behavioural
+rigs, lightweight sensors, custom PCBs and firmware, synchronised acquisition
+systems for video and electrophysiology, and the data analysis pipelines to make sense of 
+everything afterwards too. That platform started as a means to an
 end and is now used across several projects in the lab.
 
 I like working on unfamiliar technical problems, and I'm comfortable moving

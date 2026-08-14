@@ -30,21 +30,24 @@ to ask how the superior colliculus contributes to deciding where to move next.
 
 {% include todo.liquid text="How the task works from the animal's point of view, and the specific design feature that dissociates sensory from motor. <strong>This paradigm is your distinctive contribution</strong> — give it the most room on the page." %}
 
-## What we found
+## Approach
 
-Three results from this work:
+To ask this question I combined the behavioural paradigm with targeted circuit
+manipulation and chronic electrophysiology in freely moving mice — recording
+with optetrodes, Cambridge NeuroTech probes and Neuropixels while animals
+performed the task, and using chemogenetics to test the contribution of
+specific collicular populations.
 
-- **Chemogenetic manipulation (DREADDs) of superior colliculus Pitx2+ neurons** modulated baseline spatial priors across movements.
-- **Chronic electrophysiology** in freely moving mice during behaviour (optetrodes, Cambridge NeuroTech, Neuropixels).
-- **A subpopulation encoding spatial confidence**, selectively active during correct visual decisions but not during incorrect or non-visual trials.
+## Results
 
-{% include todo.liquid text="Each bullet needs a paragraph. Specifically — (1) what did the DREADD manipulation do behaviourally: which way did the bias shift and by how much? (2) what were you recording and where? (3) <strong>the confidence result is your headline</strong>: what makes 'confidence' the right interpretation, and which alternative explanations did you rule out?" %}
+Results from this work are in preparation for publication. This section will be
+filled in once the preprint is available.
 
-{% include img_block.liquid cols="3"
-   paths="assets/img/projects/sc-behaviour.png, assets/img/projects/sc-dreadds.png, assets/img/projects/sc-ephys.png"
-   titles="Behaviour | DREADDs | Ephys"
-   caption="Caption each panel."
-   note="<strong>Results figures</strong> — behaviour, DREADD effect, ephys. Panels lifted from the manuscript figures are fine." %}
+{% include todo.liquid label="check" text="<strong>Findings deliberately withheld from the public page</strong> until the preprint is out — your decision, agreed as: publish the page, strip the findings. The specific results are preserved in the note below so you don't lose them; they render only in local preview, never on the live site." %}
+
+{% include todo.liquid text="<strong>Restore after the preprint.</strong> The three results to write up were: (1) chemogenetic manipulation (DREADDs) of superior colliculus <em>Pitx2+</em> neurons modulated baseline spatial priors across movements — say which way the bias shifted and by how much; (2) chronic electrophysiology in freely moving mice during behaviour — say what you recorded and where; (3) <strong>the headline</strong> — a subpopulation encoding spatial confidence, selectively active during correct visual decisions but not during incorrect or non-visual trials; say what makes 'confidence' the right interpretation and which alternatives you ruled out." %}
+
+{% include todo.liquid label="image" text="<strong>Do not add manuscript result figures yet</strong> (<code>sc-behaviour.png</code>, <code>sc-dreadds.png</code>, <code>sc-ephys.png</code>) — they would be public the moment the file lands, since image blocks self-activate. Add them when you restore the results section. A task schematic above is fine now; result panels are not." %}
 
 
 ## Methods
