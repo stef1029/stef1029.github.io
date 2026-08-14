@@ -40,7 +40,7 @@ related_publications: false
 
 ## Links
 
-{% include todo.liquid label="check" text="I could not match a repo to this project. <code>trilab-floating-platform</code> was the only recent repo I couldn't place — is that this? If not, point me at the right one." %}
+{% include todo.liquid label="check" text="Still no repo matched to this project. (Earlier I guessed <code>trilab-floating-platform</code> — that's now resolved as the head-fixed floating platform from your thesis Chapter 2, not this.) Point me at the right repo, or add it below." %}
 
 - **Firmware:** *(not yet linked)*
 - **Hardware design files:** *(not yet linked)*
