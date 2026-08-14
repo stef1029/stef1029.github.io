@@ -115,6 +115,6 @@ filled in once the preprint is available.
 - **Lab:** [Tripodi group](https://www.tripodilab.org/), MRC LMB
 - **Instrumentation:** [behavioural rig platform]({{ '/projects/01-behavioural-rig-platform/' | relative_url }})
 - **Analysis code:** `hex_behav`, `analysis_notebooks`, `DLC_model_training` — **private**
-- **Earlier floating-platform approach:** `trilab-floating-platform` — **private**
+- **Earlier floating-platform approach:** [trilab-floating-platform](https://github.com/stef1029/trilab-floating-platform) — public
 
 {% include todo.liquid text="Add the preprint link the moment it's on bioRxiv, and put the real manuscript title into <code>_bibliography/papers.bib</code>. Worth linking your thesis here once it's deposited — it's the fullest public account of this work and costs nothing." %}
