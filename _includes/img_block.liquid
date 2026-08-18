@@ -55,7 +55,9 @@
 {% endfor %}
 
 {% if _missing == "" %}
-  {% assign _cols = include.cols | default: _paths.size %}
+  {% comment %} `| plus: 0` coerces cols to a number — passed as cols="2" it is a
+     string, and Liquid raises on a string/number comparison. {% endcomment %}
+  {% assign _cols = include.cols | default: _paths.size | plus: 0 %}
   {% if _cols > 3 %}{% assign _cols = 3 %}{% endif %}
   {% capture _style %}{% if include.width %}max-width:{{ include.width }};margin-left:auto;margin-right:auto;{% endif %}{% endcapture %}
   <div class="img-grid img-grid-{{ _cols }}"{% if include.width %} style="{{ _style }}"{% endif %}>

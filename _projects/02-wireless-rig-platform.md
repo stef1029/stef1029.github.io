@@ -8,11 +8,11 @@ category: engineering
 related_publications: false
 ---
 
-{% include img_block.liquid eager=true
-   paths="assets/img/projects/wireless-hero.jpg"
-   titles="The wireless rig hardware"
-   caption="Caption."
-   note="<strong>Hero shot</strong> — the board, or the rig in use." %}
+{% include img_block.liquid eager=true width="60%"
+   paths="assets/img/projects/rig2-hub-3d.png"
+   titles="Floating platform hub"
+   caption="The platform hub — nRF52840 module, USB-C, and the RS-485 trunk connector."
+   note="A photo of the assembled hardware would beat this render — worth swapping in when you have one." %}
 
 
 ## Why go wireless
@@ -21,41 +21,46 @@ related_publications: false
 
 ## System architecture
 
-Three board types, named after penguins, plus a Python host application:
+A moving **hub** on the platform, up to six **reward ports** around it, and a
+stationary **timing bridge** beside the DAQ:
 
-| Name | Role | MCU |
+| Board | Role | MCU |
 | --- | --- | --- |
-| **Korora** | Floating platform hub | nRF52840 |
-| **Fairy** | Reward port — up to six per system | STM32G071 |
-| **Galapagos** | Static DAQ TTL sync | nRF54L15 |
-| **Adelie** | Host application | Python |
+| Hub (*Korora*) | Time base, trial state machine, event buffering, BLE to host | nRF52840, Zephyr |
+| Reward port (*Fairy*) | Beam-break capture, RGB, audio, valve — one per port | STM32G071 |
+| Timing bridge (*Galapagos*) | TTL markers for the external DAQ | nRF52840 |
 
-How they talk to each other:
-
-- **Adelie ⇄ Korora** over BLE — commands down, records up
-- **Korora ⇄ Fairy boards** over RS485, with a **4 Hz sync** broadcast from the hub
-- **Korora ⇄ Galapagos** over BLE, with a TTL loopback closing the timing path to the DAQ
-
-Four protocol layers, kept deliberately separate:
-
-- **Transport** — frame structure over whichever medium is carrying it (UART or BLE)
-- **Magellan** — assigns logical addresses to Fairy boards, so ports are interchangeable
-- **Adelie** — commands out to peripherals and TTL generation
-- **Fairy** — the record format that ends up in analysis
-
-Board count is a build-time constant (`FAIRY_MAX_BOARDS`, default six) rather
-than hard-coded, so the same firmware serves a different port count.
-
-{% include todo.liquid text="Two things the repo doesn't tell me, both worth a bullet each: the <strong>power/battery budget</strong> and runtime per session, and <strong>why RS485 for the hub↔port link</strong> rather than doing everything over BLE. The mixed transport is the most interesting design decision here." %}
-
-{% include todo.liquid text="Also worth stating: why STM32G071 for the ports and nRF chips for the radio roles, when the first-generation rig used ESP32." %}
+- Ports hang off the hub on a **half-duplex RS-485 trunk** — hub-master polled, CRC protected, sequence numbered
+- The hub streams events to the host **directly over BLE**; the timing bridge is a clock reference, not a data relay
+- Port count is a build-time constant (default six), so the same firmware serves a different arena
+- Separate power domains for 3.3 V logic and the valve/audio rail
 
 {% include img_block.liquid cols="2"
-   paths="assets/img/projects/wireless-pcb-layout.jpg, assets/img/projects/wireless-pcb-built.jpg"
-   titles="PCB layout | Assembled board"
-   caption="Left: layout. Right: as assembled."
-   note="<strong>PCB layout render + assembled board</strong> side by side — the standard shot for this, and it always looks good." %}
+   paths="assets/img/projects/rig2-hub-pcb.png, assets/img/projects/rig2-port-pcb.png"
+   titles="Hub layout | Reward port layout"
+   caption="KiCad layouts — hub on the left, reward port on the right."
+   note="Board layouts." %}
 
+## Timing
+
+The part I'd point at first. Time is distributed in hardware rather than
+reconstructed from messages:
+
+- A **1 MHz differential TIMEBASE** goes to every port, counted directly by a hardware timer — one tick per microsecond, no interrupt in the path
+- A **separate differential SYNC** line aligns the counters, since a shared rate alone doesn't give a shared counter value
+- Each port extends a 32-bit hardware counter to 64 bits in software
+- Commands are **pre-armed, not live**: the hub sends *"cue on at tick N; on a valid beam break, open the valve after 500 µs"* ahead of time, and the port executes it from timer compare
+- Both *requested* and *actual* timestamps are logged, with clock-health and sync-quality records alongside
+
+The effect is that port-to-port drift disappears while the distributed clock is
+healthy, and timestamps are directly comparable between modules without trusting
+bus latency.
+
+{% include img_block.liquid width="100%"
+   paths="assets/img/projects/rig2-pcb-closeup.png"
+   titles="Reward port routing detail"
+   caption="Routing detail from a reward port — the differential SYNC and RS-485 pairs, and the timer channels driving capture and compare."
+   note="Decorative close-up." %}
 
 ## Firmware
 
