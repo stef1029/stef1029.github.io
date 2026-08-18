@@ -121,3 +121,14 @@
     max-width: 100% !important;
   }
 }
+
+/* --- Hard break after the floated profile photo -------------------------- */
+/* The `about` layout floats the profile block (photo + address) to the right
+   and wraps the WHOLE page body in a single `.clearfix` div. That clearfix
+   only fires at the very end of the page, so a portrait taller than the intro
+   text runs on down into the CV sections below it.
+   Clearing on `hr` turns every `---` in the markdown into a real break: the
+   float is cleared before the next section starts. */
+hr {
+  clear: both;
+}
