@@ -25,7 +25,7 @@ The platform's main elements:
 
 - **Automated behavioural rigs** for freely moving mice.
 - **Wireless load-cell platforms** (ESP32, Bluetooth) for automated trial initiation.
-- **Multi-camera video acquisition** and synchronisation — see the [multi-modal DAQ writeup]({{ '/projects/04-multimodal-daq/' | relative_url }}).
+- **Multi-camera video acquisition**, synchronised with behaviour and electrophysiology on a common clock.
 
 {% include todo.liquid text="Expand each bullet above into a sentence or two of real detail. Specifically: what does a single trial actually look like from the mouse's point of view? Why load cells rather than a beam break or lever? What did automating trial initiation buy you?" %}
 
@@ -36,7 +36,7 @@ application and three hardware libraries, each installed editable so a rig can
 be debugged without reinstalling:
 
 - **BehavLink** — serial protocol for the rig microcontroller: LEDs, valves, sensors and GPIO
-- **DAQLink** — the acquisition path (see the [multi-modal DAQ writeup]({{ '/projects/04-multimodal-daq/' | relative_url }}))
+- **DAQLink** — the acquisition path: asynchronous binary serial off an Arduino Due monitoring 35 digital lines, incremental NumPy backups during a session, and archival to HDF5 with JSON sidecars
 - **ScalesLink** — calibrated weight readings, background-threaded with CSV logging; supports both wired and wireless scale rigs
 
 A few decisions worth calling out:

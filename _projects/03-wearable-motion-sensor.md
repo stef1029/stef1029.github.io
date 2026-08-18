@@ -54,6 +54,5 @@ firmware:
 - **Sensor firmware:** [Head-sensor-internal-code](https://github.com/stef1029/Head-sensor-internal-code) — public
 - **Experiment control:** [Head-sensor-experiment-control](https://github.com/stef1029/Head-sensor-experiment-control) — public
 - **Analysis:** `head_sensor_analysis`, `headsensor_analysis_notebooks` — **private**
-- **Used by:** [closed-loop optogenetics control]({{ '/projects/05-closed-loop-optogenetics/' | relative_url }})
 
 {% include todo.liquid label="check" text="Confirm the two public repos above are the right ones, and add a description to each on GitHub — both are currently blank." %}
