@@ -17,8 +17,8 @@ nav_order: 1
   and it appears by itself. See README.md.
 -->
 
-A non-exhaustive selection of recent work. Some detail is held back pending
-publication, but I'm always happy to talk through any of it in more depth.
+<!-- A non-exhaustive selection of recent work. Some detail is held back pending
+publication, but I'm always happy to talk through any of it in more depth. -->
 
 ---
 
@@ -54,6 +54,12 @@ output population and chronic electrophysiology in the lateral superior
 colliculus during task performance. A manuscript is in preparation, and specific
 findings are held back until it is public.
 
+{% include img_block.liquid width="55%"
+   paths="assets/img/32ch_tetrode_build.jpg"
+   titles="32-channel optetrode microdrive"
+   caption="A 32-channel optetrode microdrive, hand-built: tetrode wires and an optic fibre on a carrier the size of a fingernail."
+   note="Optetrode drive." %}
+
 ---
 
 ## Automated behavioural rig platform
@@ -77,11 +83,17 @@ animal on the rig.
 It began as a means to an end for my own experiments and is now used across
 several projects in the lab.
 
-{% include img_block.liquid width="60%"
-   paths="assets/img/projects/rig-photo.jpg"
+{% include img_block.liquid width="70%"
+   paths="assets/img/rigs_hero_shot.png"
    titles="A behavioural rig"
-   caption="Caption."
-   note="<strong>The one image this page really needs.</strong> A photo of an assembled rig — this is the most-used thing you built and the only project here with no picture at all." %}
+   caption="One rig: six reward ports around a central platform, camera overhead, control electronics on each face."
+   note="Rig render." %}
+
+{% include img_block.liquid width="100%"
+   paths="assets/img/rigs_setup_photos/all_rigs_lids_off_angle.jpg"
+   titles="Four rigs running in the lab"
+   caption="Four rigs in the behaviour room, each named and running independently."
+   note="Rigs in situ." %}
 
 ---
 
@@ -143,17 +155,24 @@ a bad mount is caught immediately rather than after the session.
 
 ## FPV drone builds
 
-Before the research work I ran a small venture building custom FPV drones to
-order — component selection, assembly, tuning and delivery. It is where a lot of
-the hands-on electronics and systems-integration instinct came from, and the
-same habits that later let me take a rig from concept to manufactured PCB in a
-few weeks.
+Before the research work I founded **UK Drone Builds**, a small venture building
+custom FPV drones to order. It ran as a proper storefront: ready-to-fly complete
+kits at a few price points, a questionnaire-driven service for customers who
+wanted something designed around their own requirements, and everything from
+component selection through assembly and tuning to delivery and after-sales
+support.
 
-{% include img_block.liquid width="60%"
-   paths="assets/img/projects/drone-hero.jpg"
-   titles="A finished build"
-   caption="Caption."
-   note="Any surviving photo would do — visually this is the most appealing thing on the page and it currently has nothing." %}
+It is where a lot of the hands-on electronics and systems-integration instinct
+came from — soldering and wiring discipline, PID tuning, and debugging RF and
+video links — along with the habit of working to someone else's requirements and
+deadline that later let me take a rig from concept to manufactured PCB in a few
+weeks.
+
+{% include img_block.liquid width="85%"
+   paths="assets/img/UKdronebuilds_site.png"
+   titles="UK Drone Builds"
+   caption="UK Drone Builds — the storefront I ran, selling complete kits and bespoke builds."
+   note="Site screenshot. A photo of an actual airframe would sit better alongside this if one survives." %}
 
 ---
 
