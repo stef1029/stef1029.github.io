@@ -67,6 +67,11 @@ systems I've built.
 
 <!-- {% include todo.liquid label="check" text="<strong>Your LaTeX CV has no LinkedIn on it</strong>, but the site now does. Worth adding the URL to <code>cv_writing/cv_13aug26/sections/header.tex</code> so the two agree — and while you're in there, fix the mailto/display email mismatch on line 8." %} -->
 
+<!-- Hard break: ends the floated profile block (photo AND address) so the CV
+     below always starts on a clean line. The inline style is deliberate —
+     it cannot be undone by a stale stylesheet cache or a CSS purge. -->
+<div style="clear: both"></div>
+
 ---
 
 ## Experience
