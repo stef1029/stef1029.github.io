@@ -28,12 +28,13 @@ stationary **timing bridge** beside the DAQ:
 | --- | --- | --- |
 | Hub (*Korora*) | Time base, trial state machine, event buffering, BLE to host | nRF52840, Zephyr |
 | Reward port (*Fairy*) | Beam-break capture, RGB, audio, valve — one per port | STM32G071 |
-| Timing bridge (*Galapagos*) | TTL markers for the external DAQ | nRF52840 |
+| Timing bridge (*Galapagos*) | TTL markers for the external DAQ | nRF54L15 |
 
 - Ports hang off the hub on a **half-duplex RS-485 trunk** — hub-master polled, CRC protected, sequence numbered
 - The hub streams events to the host **directly over BLE**; the timing bridge is a clock reference, not a data relay
 - Port count is a build-time constant (default six), so the same firmware serves a different arena
-- Separate power domains for 3.3 V logic and the valve/audio rail
+- Ports self-assign addresses over a discovery protocol, so they're physically interchangeable
+- Outputs fail safe: the valve has a hard 250 ms ceiling, rejects overlap and enforces a minimum interval; RGB, IR, audio and valve all return to safe states on reset or session stop
 
 {% include img_block.liquid cols="2"
    paths="assets/img/projects/rig2-hub-pcb.png, assets/img/projects/rig2-port-pcb.png"
@@ -43,18 +44,35 @@ stationary **timing bridge** beside the DAQ:
 
 ## Timing
 
-The part I'd point at first. Time is distributed in hardware rather than
-reconstructed from messages:
+Nothing is slaved to a distributed clock. Every node free-runs on its own
+oscillator, and each remote node keeps an **affine model** mapping its local
+ticks onto the hub's — the hub is simply the reference domain.
 
-- A **1 MHz differential TIMEBASE** goes to every port, counted directly by a hardware timer — one tick per microsecond, no interrupt in the path
-- A **separate differential SYNC** line aligns the counters, since a shared rate alone doesn't give a shared counter value
-- Each port extends a 32-bit hardware counter to 64 bits in software
-- Commands are **pre-armed, not live**: the hub sends *"cue on at tick N; on a valid beam break, open the valve after 500 µs"* ahead of time, and the port executes it from timer compare
-- Both *requested* and *actual* timestamps are logged, with clock-health and sync-quality records alongside
+| Setting | Value |
+| --- | --- |
+| Reference timestamp rate | 16 MHz — one tick is 62.5 ns |
+| SYNC rate | 4 Hz |
+| RS-485 | 460800 baud, 8N1 |
 
-The effect is that port-to-port drift disappears while the distributed clock is
-healthy, and timestamps are directly comparable between modules without trusting
-bus latency.
+How each node gets its shared reference:
+
+- **Reward ports (wired)** — the hub emits an active-low **4 Hz sync pulse** generated entirely in hardware: timer compare → PPI → GPIOTE out, captured on a TIM2 input at the far end. No interrupt anywhere in the path, so software latency never reaches the timestamp. Each port extends its 32-bit timer to 64 bits locally.
+- **Timing bridge (wireless)** — there is no wire to pulse, so both ends instead report **Bluetooth connection-event anchors** from their radio controllers. The hub matches them on the BLE event counter and maps the anchor into its own domain. Its 1 MHz GRTC is scaled by 16 so everything lands in the same nominal 16 MHz domain.
+
+**The model itself** is a rolling 16-point least-squares fit, held in
+reference-point form so precision doesn't decay as timestamps grow. It sits in
+`ACQUIRE` until enough points are accepted, then `TRACK` once it can convert.
+New points are admitted only if their prediction error falls inside
+`max(200 µs, 6 × RMS residual)`, and a reset starts a fresh segment so a fit
+never spans a discontinuity.
+
+**Scheduling works backwards through the same model.** To place a TTL for the
+DAQ, the hub picks a time in its own domain, inverts it through the target's
+model to get a local target, and sends that as an absolute time. The bridge then
+generates both edges from hardware compare events — no software in the loop. A
+four-node test harness measures the whole path end to end, logging the requested
+target, the timestamp the bridge reports, and the edge the hub actually
+captures.
 
 {% include img_block.liquid width="100%"
    paths="assets/img/projects/rig2-pcb-closeup.png"
@@ -64,7 +82,7 @@ bus latency.
 
 ## Firmware
 
-{% include todo.liquid text="How the firmware is structured, and how you keep timing/synchronisation solid over a radio link — that's the genuinely hard part here and worth explaining properly. What happens when a packet drops?" %}
+{% include todo.liquid text="Timing is covered above now. What's left here: how the firmware is <strong>structured</strong> across the three board types and the shared library, and what happens on a <strong>dropped packet or a lost sync pulse</strong> — does the model coast, or reset?" %}
 
 ## Concept to hardware in weeks
 
