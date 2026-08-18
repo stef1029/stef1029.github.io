@@ -132,3 +132,18 @@
 hr {
   clear: both;
 }
+
+/* --- Square-cropped image galleries -------------------------------------- */
+/* Set by img_block.liquid when square=true. Crops each tile to 1:1 with
+   object-fit so a set of mixed-aspect photos lines up as an even grid.
+   The theme's figure wrapper carries its own margin, which would break the
+   alignment, so it is zeroed here. */
+.img-grid-square figure {
+  margin: 0;
+}
+.img-grid-square img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}

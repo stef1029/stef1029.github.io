@@ -32,8 +32,8 @@ publication, but I'm always happy to talk through any of it in more depth. -->
 
 Orienting towards something looks effortless, but the nervous system has to
 solve two hard problems to do it. Different senses encode space in incompatible
-reference frames — vision relative to the retina, hearing relative to the head,
-touch relative to the body — and when several stimuli compete only one can be
+reference frames - vision relative to the retina, hearing relative to the head,
+touch relative to the body - and when several stimuli compete only one can be
 chosen, because the body cannot turn two ways at once. The superior colliculus
 is the midbrain structure where that competition appears to be resolved, and it
 has been doing the job for something like 500 million years.
@@ -55,10 +55,9 @@ colliculus during task performance. A manuscript is in preparation, and specific
 findings are held back until it is public.
 
 {% include img_block.liquid width="55%"
-   paths="assets/img/32ch_tetrode_build.jpg"
+   paths="assets/img/tetrode_implant.jpg"
    titles="32-channel optetrode microdrive"
-   caption="A 32-channel optetrode microdrive, hand-built: tetrode wires and an optic fibre on a carrier the size of a fingernail."
-   note="Optetrode drive." %}
+   caption="A 32-channel optetrode microdrive, hand-built, during surgery." %}
 
 ---
 
@@ -83,11 +82,11 @@ animal on the rig.
 It began as a means to an end for my own experiments and is now used across
 several projects in the lab.
 
-{% include img_block.liquid width="70%"
-   paths="assets/img/rigs_hero_shot.png"
-   titles="A behavioural rig"
-   caption="One rig: six reward ports around a central platform, camera overhead, control electronics on each face."
-   note="Rig render." %}
+{% include img_block.liquid cols="2" square=true width="80%"
+   paths="assets/img/rigs_hero_shot.png, assets/img/rigs_inside_view.png, assets/img/rigs_cross_section_inside_view.png, assets/img/rigs_scales_underside.png"
+   titles="Complete rig | Inside the arena | Reward port detail | Load cell underside"
+   caption="Clockwise from top left: a complete rig; inside the arena, with a reward port and the central platform; a port close up, showing the speaker and beam-break sensor; and the underside of the platform, where the load cell sits."
+   note="Rig gallery." %}
 
 {% include img_block.liquid width="100%"
    paths="assets/img/rigs_setup_photos/all_rigs_lids_off_angle.jpg"
@@ -97,7 +96,7 @@ several projects in the lab.
 
 ---
 
-## Fully wireless rig platform
+## Fully wireless behaviour platform
 
 {% include img_block.liquid width="55%"
    paths="assets/img/projects/rig2-hub-3d.png"
@@ -123,11 +122,11 @@ event counter. Scheduling runs the same model backwards — to place a TTL, the
 hub picks a time in its own domain and inverts it through the target's model to
 get an absolute local target.
 
-{% include img_block.liquid width="85%"
-   paths="assets/img/projects/rig2-port-pcb.png"
-   titles="Reward port layout"
-   caption="Reward port layout — one of the three boards in the system."
-   note="Board layout." %}
+{% include img_block.liquid width="55%"
+   paths="assets/img/reward_port_3d_model.png"
+   titles="Reward port board"
+   caption="A reward port board — one of the three designs in the system, six of them per rig."
+   note="Reward port render." %}
 
 ---
 

@@ -38,6 +38,7 @@ module.exports = {
     "img-grid",
     "img-grid-2",
     "img-grid-3",
+    "img-grid-square",
     // used by the max-width:767px override that undoes img_block's `width` cap
     // on phones; keep so the rule survives the purge.
     "caption",

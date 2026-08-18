@@ -28,6 +28,9 @@
     titles   - pipe-separated alt/title text, one per image (optional)
     caption  - caption shown under the grid (optional)
     cols     - 1, 2 or 3 columns at md and up (default: number of paths, max 3)
+    square   - square=true crops every image in the block to a 1:1 tile, so a
+               mixed-aspect set lines up as a clean grid. Pair with cols="2" and
+               four images for a 2x2 gallery.
     width    - cap the block's width and centre it, e.g. width="50%" or "420px".
                Omit for full content width. Useful for near-square diagrams,
                which look enormous at full width on a desktop screen.
@@ -60,7 +63,7 @@
   {% assign _cols = include.cols | default: _paths.size | plus: 0 %}
   {% if _cols > 3 %}{% assign _cols = 3 %}{% endif %}
   {% capture _style %}{% if include.width %}max-width:{{ include.width }};margin-left:auto;margin-right:auto;{% endif %}{% endcapture %}
-  <div class="img-grid img-grid-{{ _cols }}"{% if include.width %} style="{{ _style }}"{% endif %}>
+  <div class="img-grid img-grid-{{ _cols }}{% if include.square %} img-grid-square{% endif %}"{% if include.width %} style="{{ _style }}"{% endif %}>
     {% for _p in _paths %}
       {% assign _clean = _p | strip %}
       {% assign _t = _titles[forloop.index0] | default: "" | strip %}
