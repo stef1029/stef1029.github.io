@@ -89,7 +89,7 @@ several projects in the lab.
    note="Rig gallery." %}
 
 {% include img_block.liquid width="100%"
-   paths="assets/img/rigs_setup_photos/all_rigs_lids_off_angle.jpg"
+   paths="assets/img/rigs_setup_photos/all_rigs_front_on_lids_on.jpg"
    titles="Four rigs running in the lab"
    caption="Four rigs in the behaviour room, each named and running independently."
    note="Rigs in situ." %}
@@ -98,11 +98,11 @@ several projects in the lab.
 
 ## Fully wireless behaviour platform
 
-{% include img_block.liquid width="55%"
-   paths="assets/img/projects/rig2-hub-3d.png"
-   titles="Platform hub"
-   caption="The platform hub — nRF52840, USB-C and the RS-485 trunk connector."
-   note="Hub render; a photo of the assembled board would be better." %}
+{% include img_block.liquid eager=true width="100%"
+   paths="assets/img/floating_platform_hardware_concept.png"
+   titles="The floating platform assembly"
+   caption="The platform assembly: six reward ports arranged around a central stage, each with its own driver board."
+   note="Whole-assembly render." %}
 
 The second-generation platform, developed during my postdoc: a fully wireless
 replacement for the tethered system above, taken from concept to manufactured
@@ -122,11 +122,13 @@ event counter. Scheduling runs the same model backwards — to place a TTL, the
 hub picks a time in its own domain and inverts it through the target's model to
 get an absolute local target.
 
-{% include img_block.liquid width="55%"
-   paths="assets/img/reward_port_3d_model.png"
-   titles="Reward port board"
-   caption="A reward port board — one of the three designs in the system, six of them per rig."
-   note="Reward port render." %}
+{% include img_block.liquid cols="3" square=true width="100%"
+   paths="assets/img/floating_platform_close_up.png, assets/img/projects/rig2-hub-3d.png, assets/img/reward_port_3d_model.png"
+   titles="Ports in place | Hub board | Reward port board"
+   caption="Left to right: three reward ports and their driver boards in position around the stage; the hub board, which owns the time base and the link to the host; and a single reward port board, six of which sit on the RS-485 trunk."
+   note="Detail and boards." %}
+
+{% include todo.liquid label="check" text="<strong>Check my wording for the platform itself.</strong> I've called the centre a &quot;central stage&quot; and avoided naming the mechanism, since the renders show an annular surface covered in a dense array of posts and I did not want to guess at how it floats. Correct the caption if there's a proper term for it." %}
 
 ---
 
@@ -164,14 +166,13 @@ support.
 It is where a lot of the hands-on electronics and systems-integration instinct
 came from — soldering and wiring discipline, PID tuning, and debugging RF and
 video links — along with the habit of working to someone else's requirements and
-deadline that later let me take a rig from concept to manufactured PCB in a few
-weeks.
+deadline that later let me take on my PhD work.
 
 {% include img_block.liquid width="85%"
    paths="assets/img/UKdronebuilds_site.png"
    titles="UK Drone Builds"
    caption="UK Drone Builds — the storefront I ran, selling complete kits and bespoke builds."
-   note="Site screenshot. A photo of an actual airframe would sit better alongside this if one survives." %}
+   note="Site screenshot." %}
 
 ---
 
