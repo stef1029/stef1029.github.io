@@ -15,7 +15,7 @@ this repo _may_ legally shadow gem-owned files.
 
 The landing page **is** the CV: name, photo, bio, education, experience, skills,
 links and a PDF download, all readable without clicking. Everything else hangs
-off it — a projects page with one detail page per project, and publications.
+off it — a single portfolio page of prose project summaries, and a CV page.
 
 ## Where things live
 
@@ -25,8 +25,7 @@ off it — a projects page with one detail page per project, and publications.
 | Structured CV shown at `/cv/`       | `assets/json/resume.json`              |
 | Downloadable CV PDF                 | `assets/pdf/cv.pdf`                    |
 | Email, GitHub, LinkedIn, Scholar    | `_data/socials.yml`                    |
-| A project                           | `_projects/NN-slug.md`                 |
-| Publications                        | `_bibliography/papers.bib`             |
+| A project write-up                  | `_pages/projects.md` (single page)     |
 | Site settings, feature flags        | `_config.yml`                          |
 
 Everything else at the root is build machinery. `_upstream/` is al-folio's own
@@ -51,8 +50,9 @@ project infrastructure, excluded from the build — see `_upstream/README.md`.
 3. **Layouts and CSS are gem-owned.** al-folio v1.x is a thin starter; rendering
    lives in the `al_folio_*` gems pinned in the `Gemfile`. There is no
    `_layouts/` here. To override one, create the matching file locally.
-4. **Project filenames must not match `?_project.md`** — that glob is excluded in
-   `_config.yml` to hide the theme's nine demo projects.
+4. **There are no per-project pages.** Every project is a prose section in
+   `_pages/projects.md`. The `_projects/` collection holds only the theme's nine
+   demo files, excluded via the `?_project.md` glob in `_config.yml`.
 5. **Never wrap a Liquid include in an HTML comment.** Liquid executes before
    HTML is parsed, so `<!-- {% include figure.liquid %} -->` still runs the
    include, and `figure.liquid`'s output begins with its own `<!-- -->` comment

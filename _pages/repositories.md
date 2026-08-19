@@ -4,7 +4,7 @@ permalink: /repositories/
 title: repositories
 description: Public code — behavioural rig control, sensor firmware, stimulation hardware and acquisition tools.
 nav: true
-nav_order: 6
+nav_order: 5
 ---
 
 {% include todo.liquid label="check" text="<strong>7 of your ~40 repos are public</strong> and listed below, newest first. Still private: <code>hex_behav</code>, <code>Laser-stim-control-board</code>, <code>Camera</code>, <code>ArduinoDAQ2-Due</code>, <code>cohort_visualizer</code> and the analysis notebooks — making the good ones public remains the highest-value thing you can do for this site." %}

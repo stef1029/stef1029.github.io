@@ -3,7 +3,7 @@ layout: cv
 permalink: /cv/
 title: CV
 nav: true
-nav_order: 3
+nav_order: 2
 cv_pdf: /assets/pdf/cv.pdf # your real CV PDF; external URLs also work
 cv_format: jsonresume # MUST be jsonresume — we drive this page from
 # assets/json/resume.json. Setting `rendercv` here makes the page read

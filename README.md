@@ -24,9 +24,7 @@ First run pulls the image and installs gems, so give it a few minutes.
 | Downloadable CV PDF             | `assets/pdf/cv.pdf` (path set in `_data/socials.yml`)         |
 | Profile photo                   | `assets/img/prof_pic.jpg`                                    |
 | Email / GitHub / LinkedIn / Scholar | `_data/socials.yml`                                      |
-| One file per project            | `_projects/*.md`                                             |
-| Projects landing page           | `_pages/projects.md`                                         |
-| Publications                    | `_bibliography/papers.bib`                                   |
+| All project write-ups           | `_pages/projects.md` (one page)                              |
 | Featured repos                  | `_data/repositories.yml`                                     |
 | Site-wide settings              | `_config.yml`                                                |
 
@@ -37,16 +35,9 @@ or `_sass/` here and it shadows the gem's version.
 
 ## Adding a project
 
-Copy `_projects/01-cryogenic-fatigue-rig.md` — it is commented as a template.
-
-- Filename must **not** match `?_project.md` (one character + `_project.md`);
-  that pattern is excluded in `_config.yml` to hide the theme's demo projects.
-- `img:` is the thumbnail on the projects grid; `importance:` sets the order
-  (lower first); `category:` must match a value in `display_categories:` in
-  `_pages/projects.md`.
-- Images use `{% include img_block.liquid %}` — see below.
-- Image grids use our own classes: `<div class="img-grid img-grid-3">` (or
-  `img-grid-2`, or just `img-grid` for one full-width image).
+Projects are prose sections in `_pages/projects.md` — there are no per-project
+pages. Copy an existing section: an `##` heading, two or three short paragraphs,
+and one or two images.
 
 **Do not use Tailwind utility classes** (`gap-4`, `md:grid-cols-3`,
 `justify-between`…) in page content. The theme ships a prebuilt, pruned
@@ -59,10 +50,10 @@ file shadows the theme's copy and already defines `.cv-entry`, `.cv-dates`,
 
 ## Adding images to a project
 
-**Just drop the file into `assets/img/projects/` and it appears.** Nothing to
-uncomment. Each project page already declares its image blocks; while a file is
-missing you see a blue note naming the exact filename to add, and once it exists
-the image replaces the note automatically.
+**Drop the file in and it appears.** Nothing to uncomment. While a file is
+missing you see a blue note naming the exact filename to add; once it exists the
+image replaces the note automatically. Images can live in `assets/img/` or
+`assets/img/projects/` — reference wherever they are rather than duplicating.
 
 To declare a new one:
 
@@ -74,8 +65,9 @@ To declare a new one:
    note="What to photograph, shown while the files are missing." %}
 ```
 
-`cols` is 1, 2 or 3 (defaults to the number of images). Add `eager=true` for a
-hero image at the top of a page. WebP variants at 480/800/1400px are generated
+`cols` is 1, 2 or 3 (defaults to the number of images). Add `square=true` to crop
+every tile to 1:1 — `cols="2"` with four images gives a 2x2 gallery. Add
+`eager=true` for a hero image at the top of a page. WebP variants at 480/800/1400px are generated
 automatically, so upload the full-resolution original and don't pre-resize.
 
 Add `width="45%"` (or `width="420px"`) to cap a block's width and centre it —
@@ -89,14 +81,16 @@ readable on a phone.
 > and dumps raw HTML onto the page. Use `{% comment %} … {% endcomment %}` if
 > you really need to disable a block.
 
-## Adding a publication
+## Publications
 
-Append a BibTeX entry to `_bibliography/papers.bib`. `selected={true}` also
-surfaces it on the homepage. See the comment block at the top of that file for
-the al-folio-specific fields (`abbr`, `pdf`, `code`, `arxiv`, `bibtex_show`, …).
+The publications page was removed. The machinery is still wired up —
+`_bibliography/papers.bib`, jekyll-scholar config in `_config.yml`, and
+`selected_papers` in `_pages/about.md` — so restoring it is just re-creating
+`_pages/publications.md`:
 
-Your own name is bolded automatically — `scholar.last_name` / `first_name` in
-`_config.yml` must match how you appear in the `author` field.
+```bash
+git show <commit>:_pages/publications.md > _pages/publications.md
+```
 
 ## Removing more of the theme
 

@@ -4,7 +4,7 @@ permalink: /teaching/
 title: teaching
 description: Teaching and outreach.
 nav: true
-nav_order: 5
+nav_order: 4
 ---
 
 {% include todo.liquid label="check" text="<strong>This page is nearly empty and is in your nav.</strong> Decide one of three things: (1) write it up — your CV lists the Cambridge Open Lab summer school, which is real teaching experience worth a paragraph; (2) leave it as the single line below; or (3) delete the page — say the word and I'll remove it and renumber the nav." %}
