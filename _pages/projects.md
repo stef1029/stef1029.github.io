@@ -24,10 +24,10 @@ publication, but I'm always happy to talk through any of it in more depth. -->
 
 ## Spatial decision-making in the superior colliculus
 
-{% include img_block.liquid eager=true width="45%"
-   paths="assets/img/projects/sc-task.png"
-   titles="The six-choice orienting task"
-   caption="The six-choice arena: a brief cue marks one of six ports, and the mouse reports where it saw the cue by going there."
+{% include img_block.liquid eager=true width="50%"
+   paths="assets/img/cue_presentation_angle.png"
+   titles="Cue presentation angle"
+   caption="The task, and the variable that matters: a brief cue appears at one of six ports, and what determines difficulty is the angle between where the mouse is already facing and where the cue appears."
    note="Task schematic." %}
 
 Orienting towards something looks effortless, but the nervous system has to

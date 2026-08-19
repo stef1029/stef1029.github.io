@@ -259,6 +259,7 @@ exclude:
   - assets/json/table_data.json # demo sortable-table data
   - assets/rendercv/ # RenderCV config + a demo Albert_Einstein_CV.pdf
   - assets/img/projects/README.md # notes to self, not for the built site
+  - assets/img/cue_presentation_angle.pdf # source for the rendered .png; keep in repo, not on the site
   - assets/img/1.jpg
   - assets/img/2.jpg
   - assets/img/3.jpg
