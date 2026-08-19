@@ -101,16 +101,19 @@ several projects in the lab.
 {% include img_block.liquid eager=true width="100%"
    paths="assets/img/floating_platform_hardware_concept.png"
    titles="The floating platform assembly"
-   caption="The platform assembly: six reward ports arranged around a central stage, each with its own driver board."
+   caption="Concept render of the platform: five reward ports arranged around a central stage, each with its own driver board. The design is still in development, so the built system will differ."
    note="Whole-assembly render." %}
 
-The second-generation platform, developed during my postdoc: a fully wireless
-replacement for the tethered system above, taken from concept to manufactured
-hardware in a matter of weeks. I designed the boards in KiCad and wrote the
-firmware. There are three — an nRF52840 hub that owns the time base and trial
-state and talks to the host over Bluetooth, up to six STM32G071 reward ports on
-an RS-485 trunk handling beam-break capture and local outputs, and an nRF54L15
-bridge that generates TTL markers for an external acquisition system.
+The second-generation platform, developed during my postdoc and **still in
+active development**: a fully wireless replacement for the tethered system
+above, taken from concept to manufactured hardware in a matter of weeks. I
+designed the boards in KiCad and wrote the firmware. There are three — an
+nRF52840 hub that owns the time base and trial state and talks to the host over
+Bluetooth, STM32G071 reward ports on an RS-485 trunk handling beam-break capture
+and local outputs, and an nRF54L15 bridge that generates TTL markers for an
+external acquisition system. The current platform uses five ports; the firmware
+takes the count as a build-time constant, so the same code serves a different
+arena.
 
 The interesting part is timing. Nothing is slaved to a distributed clock: every
 node free-runs on its own oscillator, and each maintains a rolling **affine
@@ -125,7 +128,7 @@ get an absolute local target.
 {% include img_block.liquid cols="3" square=true width="100%"
    paths="assets/img/floating_platform_close_up.png, assets/img/projects/rig2-hub-3d.png, assets/img/reward_port_3d_model.png"
    titles="Ports in place | Hub board | Reward port board"
-   caption="Left to right: three reward ports and their driver boards in position around the stage; the hub board, which owns the time base and the link to the host; and a single reward port board, six of which sit on the RS-485 trunk."
+   caption="Left to right: reward ports and their driver boards in position around the stage; the hub board, which owns the time base and the link to the host; and a single reward port board, five of which sit on the RS-485 trunk. All three are renders of a design still being iterated."
    note="Detail and boards." %}
 
 {% include todo.liquid label="check" text="<strong>Check my wording for the platform itself.</strong> I've called the centre a &quot;central stage&quot; and avoided naming the mechanism, since the renders show an annular surface covered in a dense array of posts and I did not want to guess at how it floats. Correct the caption if there's a proper term for it." %}
