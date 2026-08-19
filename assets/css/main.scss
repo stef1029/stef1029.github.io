@@ -169,3 +169,23 @@ img[data-zoomable] {
 img.medium-zoom-image--opened {
   z-index: 1001;
 }
+
+/* --- Floated image blocks (img_block align="left" / "right") -------------- */
+.img-float-left {
+  float: left;
+  margin: 0.3rem 1.6rem 0.8rem 0;
+}
+.img-float-right {
+  float: right;
+  margin: 0.3rem 0 0.8rem 1.6rem;
+}
+/* A float that is 35% of a phone screen leaves an unreadable ribbon of text
+   beside it, so drop the float and go full width on small screens. */
+@media (max-width: 767px) {
+  .img-float-left,
+  .img-float-right {
+    float: none;
+    margin: 1rem 0;
+    max-width: 100% !important;
+  }
+}

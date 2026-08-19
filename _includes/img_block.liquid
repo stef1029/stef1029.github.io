@@ -28,6 +28,9 @@
     titles   - pipe-separated alt/title text, one per image (optional)
     caption  - caption shown under the grid (optional)
     cols     - 1, 2 or 3 columns at md and up (default: number of paths, max 3)
+    align    - align="left" or "right" floats the block so body text wraps around
+               it. Pair with width. The float is dropped below 768px so the
+               image goes full width on a phone.
     square   - square=true crops every image in the block to a 1:1 tile, so a
                mixed-aspect set lines up as a clean grid. Pair with cols="2" and
                four images for a 2x2 gallery.
@@ -62,8 +65,14 @@
      string, and Liquid raises on a string/number comparison. {% endcomment %}
   {% assign _cols = include.cols | default: _paths.size | plus: 0 %}
   {% if _cols > 3 %}{% assign _cols = 3 %}{% endif %}
-  {% capture _style %}{% if include.width %}max-width:{{ include.width }};margin-left:auto;margin-right:auto;{% endif %}{% endcapture %}
-  <div class="img-grid img-grid-{{ _cols }}{% if include.square %} img-grid-square{% endif %}"{% if include.width %} style="{{ _style }}"{% endif %}>
+  {% assign _float = "" %}
+  {% if include.align == "left" %}{% assign _float = "img-float-left" %}{% endif %}
+  {% if include.align == "right" %}{% assign _float = "img-float-right" %}{% endif %}
+  {% comment %} When floated the width goes on the wrapper, so the caption
+     travels with the image instead of being left behind full-width. {% endcomment %}
+  {% capture _style %}{% if include.width %}max-width:{{ include.width }};{% unless _float != "" %}margin-left:auto;margin-right:auto;{% endunless %}{% endif %}{% endcapture %}
+  {% if _float != "" %}<div class="{{ _float }}"{% if include.width %} style="{{ _style }}"{% endif %}>{% endif %}
+  <div class="img-grid img-grid-{{ _cols }}{% if include.square %} img-grid-square{% endif %}"{% if include.width and _float == "" %} style="{{ _style }}"{% endif %}>
     {% for _p in _paths %}
       {% assign _clean = _p | strip %}
       {% assign _t = _titles[forloop.index0] | default: "" | strip %}
@@ -98,7 +107,8 @@
       });
     }
   </script>
-  {% if include.caption %}<div class="caption"{% if include.width %} style="{{ _style }}"{% endif %}>{{ include.caption }}</div>{% endif %}
+  {% if include.caption %}<div class="caption"{% if include.width and _float == "" %} style="{{ _style }}"{% endif %}>{{ include.caption }}</div>{% endif %}
+  {% if _float != "" %}</div>{% endif %}
 {% else %}
   {% capture _note %}{{ include.note }} <br><em>Add:</em> {{ _missing }}<br><em>They appear here automatically — nothing to uncomment.</em>{% endcapture %}
   {% include todo.liquid label="image" text=_note %}
