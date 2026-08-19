@@ -43,8 +43,6 @@ part I found hardest is a good use of a week.
 
 <div style="clear: both"></div>
 
-{% include todo.liquid label="review" text="<strong>Some of this is my phrasing rather than your words</strong> — the instrumentation-bottleneck framing came from the poster and your projects, and the closing two paragraphs are your own account of arriving from biology and wanting to give something back, written up. Reword freely, and correct me if the school's emphasis was different. Anything the students actually built during the week would be worth a sentence." %}
-
 <!--
   Removed from this page: a demo Google Calendar embed pointing at
   test@gmail.com / Asia/Shanghai, and the theme's `courses.liquid` include

@@ -7,10 +7,6 @@ nav: true
 nav_order: 5
 ---
 
-{% include todo.liquid label="check" text="<strong>7 of your ~40 repos are public</strong> and listed below, newest first. Still private: <code>hex_behav</code>, <code>Laser-stim-control-board</code>, <code>Camera</code>, <code>ArduinoDAQ2-Due</code>, <code>cohort_visualizer</code> and the analysis notebooks — making the good ones public remains the highest-value thing you can do for this site." %}
-
-{% include todo.liquid text="<strong>All 7 still have a blank description on GitHub.</strong> The cards below display that description, so they render empty no matter what I do here. Add a one-liner to each repo on GitHub — a minute per repo, and it fixes this page entirely." %}
-
 {% if site.data.repositories.github_users %}
 
 ## GitHub users

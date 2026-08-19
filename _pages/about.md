@@ -38,9 +38,9 @@ latest_posts:
   step here, so those classes produce no CSS and silently do nothing.
 -->
 
-<!-- {% include todo.liquid label="check" text="<strong>These coloured boxes are notes to you and are invisible on the live site</strong> — they only render in local preview. <span style='color:#f59e0b'><strong>Amber = write something</strong></span>. <span style='color:#0ea5e9'><strong>Blue = add an image</strong></span>. <span style='color:#a855f7'><strong>Purple = confirm/decide something</strong></span>. <span style='color:#ec4899'><strong>Pink = I wrote this, make it yours</strong></span>. If a page has no boxes, nothing on it needs your attention." %} -->
+<!-- -->
 
-<!-- {% include todo.liquid label="check" text="<strong>Status of this page:</strong> everything below the intro — Experience, Education, Skills, Additional experience, Awards — is <strong>real, taken verbatim from your 13 Aug 2026 CV</strong>. No filler. Only the two boxes below need you." %} -->
+<!-- -->
 
 I'm a neuroscientist and engineer at the MRC Laboratory of Molecular Biology in
 Cambridge, working in [Marco Tripodi's group](https://www.tripodilab.org/)
@@ -57,7 +57,7 @@ between a soldering iron, a CAD window and a data pipeline in the same afternoon
 The [projects]({{ '/projects/' | relative_url }}) page has writeups of the main
 systems I've built.
 
-<!-- {% include todo.liquid label="review" text="<strong>I wrote those three paragraphs</strong>, loosely from your CV summary — they are the only invented prose on this page. It's your voice on your front page, so rewrite them. The last sentence in particular is my guess at how you'd describe yourself." %} -->
+<!-- -->
 
 <p>
   <a class="btn btn-sm z-depth-0" role="button" href="{{ site.data.socials.cv_pdf | relative_url }}">
@@ -65,7 +65,7 @@ systems I've built.
   </a>
 </p>
 
-<!-- {% include todo.liquid label="check" text="<strong>Your LaTeX CV has no LinkedIn on it</strong>, but the site now does. Worth adding the URL to <code>cv_writing/cv_13aug26/sections/header.tex</code> so the two agree — and while you're in there, fix the mailto/display email mismatch on line 8." %} -->
+<!-- -->
 
 <!-- Hard break: ends the floated profile block (photo AND address) so the CV
      below always starts on a clean line. The inline style is deliberate —

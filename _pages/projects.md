@@ -206,8 +206,6 @@ it replaces: its
 [sensor firmware](https://github.com/stef1029/Head-sensor-internal-code) and the
 [host-side acquisition and experiment control](https://github.com/stef1029/Head-sensor-experiment-control).
 
-{% include todo.liquid label="check" text="<strong>Confirm the second repo.</strong> You told me <code>Head-sensor-internal-code</code> is the old system’s firmware, so I have labelled both public repos as the previous generation. If <code>Head-sensor-experiment-control</code> is actually shared with the new board, say so and I’ll split the sentence." %}
-
 | Part | Role |
 | --- | --- |
 | **LSM6DSV32X** | Six-axis IMU — accelerometer and gyroscope |
@@ -232,8 +230,6 @@ transparent enough for the next person to read and adjust is worth more than
 something marginally more accurate that nobody can maintain. The code is on
 [GitHub](https://github.com/stef1029/WormTrackatron7000).
 
-{% include todo.liquid label="image" text="A <strong>trace map</strong> output would suit this section if you have one — it shows the method working at a glance, and this is currently the only project here without a picture. Drop it in and reference it; anything in <code>assets/img/</code> works." %}
-
 ## FPV drone builds
 
 Before the research work I founded **UK Drone Builds**, a small venture building
@@ -255,5 +251,4 @@ deadline that later let me take on my PhD work.
    note="Site screenshot." %}
 
 ---
-
 
