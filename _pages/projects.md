@@ -199,9 +199,14 @@ movement, rather than merely whether it did anything.
 It is also ours to build. Each board costs around £100 even at the small
 quantities a lab orders, well under what the commercial units it replaces cost,
 and the design means we can now fabricate our own rather than waiting on a
-supplier. The sensor firmware is in
-[Head-sensor-internal-code](https://github.com/stef1029/Head-sensor-internal-code) and the acquisition and
-experiment-control side in [Head-sensor-experiment-control](https://github.com/stef1029/Head-sensor-experiment-control).
+supplier.
+
+Firmware for this board is not public yet. What is available is the generation
+it replaces: its
+[sensor firmware](https://github.com/stef1029/Head-sensor-internal-code) and the
+[host-side acquisition and experiment control](https://github.com/stef1029/Head-sensor-experiment-control).
+
+{% include todo.liquid label="check" text="<strong>Confirm the second repo.</strong> You told me <code>Head-sensor-internal-code</code> is the old system’s firmware, so I have labelled both public repos as the previous generation. If <code>Head-sensor-experiment-control</code> is actually shared with the new board, say so and I’ll split the sentence." %}
 
 | Part | Role |
 | --- | --- |
