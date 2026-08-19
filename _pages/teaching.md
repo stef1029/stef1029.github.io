@@ -30,9 +30,20 @@ constrained in the questions they can ask. Nearly everything on my
 [portfolio]({{ '/projects/' | relative_url }}) page exists because building it
 was cheaper, faster, or simply more capable than anything available to buy.
 
+None of this came from an engineering degree. I arrived at the PhD from a
+biology background without knowing how to run a Python script, and everything
+since — circuits, firmware, CAD, the analysis pipelines — was picked up as it
+became necessary, usually because an experiment depended on something that did
+not yet exist.
+
+Which is why I wanted to teach on it. Most of the room was roughly where I had
+been a few years earlier: capable scientists with a clear sense of the tool they
+needed and no obvious way in. Being able to hand someone a shortcut through the
+part I found hardest is a good use of a week.
+
 <div style="clear: both"></div>
 
-{% include todo.liquid label="review" text="<strong>The last two paragraphs are my framing, not your words</strong> — written from the fact that you taught Arduino and FreeCAD to PhD students, plus the open-science premise on the poster. Reword freely, and correct me if the school's emphasis was different. Anything the students actually built during the week would be worth a sentence." %}
+{% include todo.liquid label="review" text="<strong>Some of this is my phrasing rather than your words</strong> — the instrumentation-bottleneck framing came from the poster and your projects, and the closing two paragraphs are your own account of arriving from biology and wanting to give something back, written up. Reword freely, and correct me if the school's emphasis was different. Anything the students actually built during the week would be worth a sentence." %}
 
 <!--
   Removed from this page: a demo Google Calendar embed pointing at
