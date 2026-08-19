@@ -72,8 +72,8 @@ same experiment across four animals at once rather than four times over. The
 current generation has run hundreds of thousands of trials without failing.
 
 Each rig combines a wireless load-cell platform for self-initiated trials,
-high-speed multi-camera capture written in C++ against the Spinnaker SDK, and an
-acquisition layer that puts behavioural events, video and electrophysiology on a
+high-speed multi-camera capture written in C++ against the Spinnaker SDK
+([behaviour_camera](https://github.com/stef1029/behaviour_camera)), and an acquisition layer that puts behavioural events, video and electrophysiology on a
 common clock.
 
 {% include img_block.liquid cols="2" square=true width="80%"
@@ -82,13 +82,15 @@ common clock.
    caption="Clockwise from top left: a complete rig; inside the arena, with a reward port and the central platform; a port close up, showing the speaker and beam-break sensor; and the underside of the platform, where the load cell sits."
    note="Rig gallery." %}
 
-The software was written for the people using it rather than for me. A new
+The software ([HexControl](https://github.com/stef1029/HexControl)) was written for the people using it
+rather than for me. A new
 behaviour is *configured*, not coded, so someone with no programming background
 can define a protocol, and rigs themselves are described in configuration files
 with a registry mapping device serial numbers to roles — swapping a board does
 not mean editing source. Peripherals attach the same way, so adding optogenetic
-stimulation or an electrophysiology recording to an existing task is a
-configuration change rather than a rewrite.
+stimulation (via a [purpose-built stimulation board](https://github.com/stef1029/Smart-opto-stim-board))
+or an electrophysiology recording to an existing task is a configuration change
+rather than a rewrite.
 
 Two features do most of the work in practice. **Autotraining** walks animals
 through a training schedule unsupervised, and a **simulation mode** lets a new
@@ -134,7 +136,8 @@ currently in production and still being iterated.
 Free rotation is what forces everything else. Since the platform must both spin and translate, 
 the moving side has to be self-contained: an nRF52840 hub carrying
 the time base and the Bluetooth link to the host, and five STM32G071 reward
-ports on a local RS-485 trunk. It runs from LiPo cells, with a hole through the
+ports on a local RS-485 trunk. Boards, firmware and host application are in
+[trilab-floating-platform](https://github.com/stef1029/trilab-floating-platform). It runs from LiPo cells, with a hole through the
 centre of the table for wired power if a session needs it. The firmware
 discovers how many ports are attached at startup, so peripherals are effectively
 plug-and-play. I designed the boards in KiCad and wrote the firmware with my 
@@ -196,7 +199,9 @@ movement, rather than merely whether it did anything.
 It is also ours to build. Each board costs around £100 even at the small
 quantities a lab orders, well under what the commercial units it replaces cost,
 and the design means we can now fabricate our own rather than waiting on a
-supplier.
+supplier. The sensor firmware is in
+[Head-sensor-internal-code](https://github.com/stef1029/Head-sensor-internal-code) and the acquisition and
+experiment-control side in [Head-sensor-experiment-control](https://github.com/stef1029/Head-sensor-experiment-control).
 
 | Part | Role |
 | --- | --- |
