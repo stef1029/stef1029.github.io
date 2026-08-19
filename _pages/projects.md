@@ -137,8 +137,8 @@ the time base and the Bluetooth link to the host, and five STM32G071 reward
 ports on a local RS-485 trunk. It runs from LiPo cells, with a hole through the
 centre of the table for wired power if a session needs it. The firmware
 discovers how many ports are attached at startup, so peripherals are effectively
-plug-and-play. I designed the boards in KiCad and wrote the firmware with Goran
-Ivancic.
+plug-and-play. I designed the boards in KiCad and wrote the firmware with my 
+summer student Goran Ivancic.
 
 Each port is a small instrument in its own right: an RGB LED for visual cues,
 an amplifier good enough for real sound-localisation work, a beam-break sensor
@@ -158,16 +158,14 @@ movement on timescales the camera cannot resolve.
    note="Detail and boards." %}
 
 Which leaves timing as the hard problem, since the moving and stationary halves
-of the system share no wire. Nothing is slaved to a distributed clock: every
-node free-runs on its own oscillator and maintains a rolling **affine model**
-mapping its local ticks onto the hub's 16 MHz reference. The wired ports are
+of the system share no wire. Every node free-runs on its own oscillator and 
+the hub maintains a rolling affine model
+mapping each reward ports local ticks onto the hub's 16 MHz reference. The wired ports are
 disciplined by a 4 Hz sync pulse generated entirely in hardware, with no
 interrupt in the path. The stationary bridge beside the recording rig has no
-wire to pulse, so both ends report Bluetooth connection-event anchors instead
-and match them on the event counter. Scheduling runs the same model backwards:
-to place a TTL marker for the neural recording, the hub picks a time in its own
-domain and inverts it through the target's model to get an absolute local
-target.
+wire to pulse, so it instead timestamps the connection-event anchors the radio
+hardware already hands both ends and reports them to the hub, which pairs them
+by event counter. 
 
 ---
 
