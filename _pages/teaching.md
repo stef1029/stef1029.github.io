@@ -15,7 +15,7 @@ nav_order: 4
 
 ## Open Science in Practice
 
-**Cambridge Open Lab summer school — Homerton College, University of Cambridge,
+**[Cambridge Open Lab](https://cambridgeopenlab.org/) summer school — Homerton College, University of Cambridge,
 3–7 August 2026.**
 
 I taught engineering techniques for neuroscience on this week-long school,
@@ -29,11 +29,6 @@ and a researcher who can design a circuit board or a printed part is far less
 constrained in the questions they can ask. Nearly everything on my
 [portfolio]({{ '/projects/' | relative_url }}) page exists because building it
 was cheaper, faster, or simply more capable than anything available to buy.
-
-Teaching it is also a good test of whether a system is genuinely usable. If
-someone with no electronics background can get a microcontroller reading a
-sensor in an afternoon, the tooling is in reasonable shape; if they cannot, that
-is usually a design problem rather than a them problem.
 
 <div style="clear: both"></div>
 

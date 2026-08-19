@@ -193,7 +193,7 @@ time the *onset* of a movement to the millisecond — which is precisely what yo
 need to ask what activating the superior colliculus does to an orienting
 movement, rather than merely whether it did anything.
 
-It is also ours to build. Each board costs around **£100** even at the small
+It is also ours to build. Each board costs around £100 even at the small
 quantities a lab orders, well under what the commercial units it replaces cost,
 and the design means we can now fabricate our own rather than waiting on a
 supplier.
