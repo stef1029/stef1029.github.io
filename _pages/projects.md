@@ -131,11 +131,11 @@ make a real orienting movement towards a reward port while sitting under a
 microscope. It is the second-generation system, developed during my postdoc,
 currently in production and still being iterated.
 
-Free rotation is what forces everything else. Nothing can cross to a spinning
-platform, so the moving side has to be self-contained: an nRF52840 hub carrying
+Free rotation is what forces everything else. Since the platform must both spin and translate, 
+the moving side has to be self-contained: an nRF52840 hub carrying
 the time base and the Bluetooth link to the host, and five STM32G071 reward
 ports on a local RS-485 trunk. It runs from LiPo cells, with a hole through the
-centre of the table for wired power when a session needs it. The firmware
+centre of the table for wired power if a session needs it. The firmware
 discovers how many ports are attached at startup, so peripherals are effectively
 plug-and-play. I designed the boards in KiCad and wrote the firmware with Goran
 Ivancic.

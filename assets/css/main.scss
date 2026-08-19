@@ -147,3 +147,15 @@ hr {
   object-fit: cover;
   display: block;
 }
+
+/* --- Click-to-enlarge (medium-zoom) -------------------------------------- */
+/* Affordance: show images are clickable. */
+img[data-zoomable] {
+  cursor: zoom-in;
+}
+/* A square-cropped gallery tile must drop its crop once enlarged, otherwise the
+   zoomed view shows the same cropped square rather than the whole picture. */
+.img-grid-square img.medium-zoom-image--opened {
+  aspect-ratio: auto;
+  object-fit: contain;
+}

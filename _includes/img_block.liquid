@@ -68,12 +68,31 @@
       {% assign _clean = _p | strip %}
       {% assign _t = _titles[forloop.index0] | default: "" | strip %}
       {% if forloop.first and include.eager %}
-        {% include figure.liquid loading="eager" path=_clean title=_t class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path=_clean title=_t zoomable=true class="img-fluid rounded z-depth-1" %}
       {% else %}
-        {% include figure.liquid loading="lazy" path=_clean title=_t class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="lazy" path=_clean title=_t zoomable=true class="img-fluid rounded z-depth-1" %}
       {% endif %}
     {% endfor %}
   </div>
+
+  {% comment %}
+    The theme loads medium-zoom on every page but never initialises it, and
+    figure.liquid only emits data-zoomable when asked — so click-to-enlarge is
+    inert out of the box. This wires it up. The window guard makes it safe to
+    emit once per image block; only the first one does any work.
+  {% endcomment %}
+  <script>
+    if (!window.__afZoomInit) {
+      window.__afZoomInit = true;
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof mediumZoom === "undefined") return;
+        window.medium_zoom = mediumZoom("[data-zoomable]", {
+          margin: 24,
+          background: getComputedStyle(document.body).backgroundColor,
+        });
+      });
+    }
+  </script>
   {% if include.caption %}<div class="caption"{% if include.width %} style="{{ _style }}"{% endif %}>{{ include.caption }}</div>{% endif %}
 {% else %}
   {% capture _note %}{{ include.note }} <br><em>Add:</em> {{ _missing }}<br><em>They appear here automatically — nothing to uncomment.</em>{% endcapture %}
