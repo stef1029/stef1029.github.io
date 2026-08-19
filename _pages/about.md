@@ -103,7 +103,7 @@ deploy robust experimental systems.
 **Experimental systems and engineering**
 
 - Designed and built automated behavioural rigs for studying spatial decision-making in freely moving mice.
-- Developed wireless load-cell platforms (ESP32, Bluetooth) for automated trial initiation.
+- Developed wireless load-cell platforms for automated trial initiation.
 - Implemented high-speed video acquisition in C++ using the Spinnaker API, enabling synchronised multi-camera recording.
 - Engineered a general-purpose data acquisition architecture for synchronising behavioural, video and electrophysiology signals, with end-to-end pipelines for storage and analysis.
 - Built integrated optogenetics control systems combining IMU-based head tracking, automated laser stimulation and real-time data visualisation.
@@ -152,7 +152,7 @@ First Class Honours, neuroscience specialisation.
 </div>
 <div class="cv-skill">
   <strong class="cv-skill-name">Experimental systems &amp; engineering</strong>
-  <span class="cv-skill-body">Behavioural rig design · PCB design · wireless sensor systems · real-time data acquisition · high-speed imaging (FLIR / Spinnaker) · hardware–software integration · multi-system synchronisation</span>
+  <span class="cv-skill-body">Behavioural rig design · PCB design · wireless sensor systems · high-speed imaging (FLIR / Spinnaker) · hardware–software integration · multi-system synchronisation</span>
 </div>
 <div class="cv-skill">
   <strong class="cv-skill-name">Neuroscience &amp; <em>in vivo</em> methods</strong>
