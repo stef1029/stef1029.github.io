@@ -86,8 +86,13 @@
       window.__afZoomInit = true;
       document.addEventListener("DOMContentLoaded", function () {
         if (typeof mediumZoom === "undefined") return;
+        // medium-zoom scales the image to fill the viewport minus `margin`,
+        // and there is no max-size option — a transform ignores max-width — so
+        // margin is the only lever on how big a zoomed image gets. 10% of the
+        // smaller viewport dimension keeps a comfortable border on any screen.
+        var m = Math.max(32, Math.round(Math.min(window.innerWidth, window.innerHeight) * 0.1));
         window.medium_zoom = mediumZoom("[data-zoomable]", {
-          margin: 24,
+          margin: m,
           background: getComputedStyle(document.body).backgroundColor,
         });
       });

@@ -159,3 +159,13 @@ img[data-zoomable] {
   aspect-ratio: auto;
   object-fit: contain;
 }
+
+/* The theme sets `.medium-zoom-overlay, .medium-zoom-image--opened { z-index: 999 }`
+   — the same value for both. medium-zoom appends its overlay to the end of
+   <body>, so with the z-index tied the overlay wins on DOM order and paints
+   over the picture, which makes a zoomed image look greyed out. Lift the image
+   above the overlay. Selector is img.<class> (0-1-1) so it beats the theme's
+   0-1-0 rule without needing !important. */
+img.medium-zoom-image--opened {
+  z-index: 1001;
+}
