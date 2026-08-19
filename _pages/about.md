@@ -111,9 +111,9 @@ deploy robust experimental systems.
 **Systems neuroscience and circuit mechanisms**
 
 - Developed a novel behavioural paradigm dissociating sensory input from motor output in a naturalistic setting.
-- Manipulated superior colliculus Pitx2+ neurons using chemogenetics (DREADDs), demonstrating modulation of baseline spatial priors across movements.
+- Applied bidirectional chemogenetic manipulation to a genetically defined population of superior colliculus output neurons during behaviour.
 - Performed chronic electrophysiological recordings (optetrodes, Cambridge NeuroTech, Neuropixels) in freely moving mice during behaviour.
-- Identified a subpopulation of neurons encoding spatial confidence, selectively active during correct visual decisions but not during incorrect or non-visual trials.
+- Analysed single-unit activity across trial types producing similar movements from distinct underlying computations.
 - Integrated neural and behavioural datasets to link circuit-level activity with decision-making processes.
 
 ---

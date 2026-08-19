@@ -260,6 +260,26 @@ exclude:
   - assets/rendercv/ # RenderCV config + a demo Albert_Einstein_CV.pdf
   - assets/img/projects/README.md # notes to self, not for the built site
   - assets/img/cue_presentation_angle.pdf # source for the rendered .png; keep in repo, not on the site
+  # Photos and renders kept in the repo but not used on any page. Excluded so
+  # they are not published or WebP-converted; delete a line to bring one back.
+  - assets/img/rigs_setup_photos/all_rigs_lids_off_angle.jpg
+  - assets/img/rigs_setup_photos/all_rigs_lids_on_angle_view.jpg
+  - assets/img/rigs_setup_photos/all_rigs_lids_on_side_view.jpg
+  - assets/img/rigs_setup_photos/all_rigs_lids_on_side_view_close_up.jpg
+  - assets/img/rigs_setup_photos/all_rigs_side_view_lids_off_close_up.jpg
+  - assets/img/rigs_setup_photos/all_rigs_side_view_lids_on.jpg
+  - assets/img/rigs_setup_photos/new_rigs_in_production.jpg
+  - assets/img/rigs_closup_upwards_view.png
+  - assets/img/floating_hub_3d_model.png
+  - assets/img/reward_port_pcb_long.png
+  - assets/img/pcb_closeup.png
+  - assets/img/head_sensor_board_3d_model.png
+  - assets/img/projects/rig2-port-3d.png
+  - assets/img/projects/rig2-port-pcb.png
+  - assets/img/projects/rig2-hub-pcb.png
+  - assets/img/projects/rig2-pcb-closeup.png
+  - assets/img/projects/sc-task.png
+  - assets/img/projects/sc-trial-structure.png
   - assets/img/1.jpg
   - assets/img/2.jpg
   - assets/img/3.jpg

@@ -61,9 +61,9 @@
         "Engineered a general-purpose data acquisition architecture for synchronising behavioural, video and electrophysiology signals.",
         "Built integrated optogenetics control systems combining IMU-based head tracking, automated laser stimulation and real-time data visualisation.",
         "Developed a novel behavioural paradigm dissociating sensory input from motor output in a naturalistic setting.",
-        "Manipulated superior colliculus Pitx2+ neurons using chemogenetics (DREADDs), demonstrating modulation of baseline spatial priors across movements.",
+        "Applied bidirectional chemogenetic manipulation to a genetically defined population of superior colliculus output neurons during behaviour.",
         "Performed chronic electrophysiological recordings (optetrodes, Cambridge NeuroTech, Neuropixels) in freely moving mice during behaviour.",
-        "Identified a subpopulation of neurons encoding spatial confidence, selectively active during correct visual decisions but not during incorrect or non-visual trials."
+        "Analysed single-unit activity across trial types producing similar movements from distinct underlying computations."
       ]
     },
     {
@@ -120,7 +120,9 @@
       "startDate": "2021-01-01",
       "endDate": "2025-01-01",
       "score": "",
-      "courses": ["Supervisor: Dr Marco Tripodi, MRC Laboratory of Molecular Biology"]
+      "courses": [
+        "Supervisor: Dr Marco Tripodi, MRC Laboratory of Molecular Biology"
+      ]
     },
     {
       "institution": "Imperial College London",
@@ -149,7 +151,11 @@
     {
       "name": "Programming & Software",
       "level": "Advanced",
-      "keywords": ["Python (data analysis, automation)", "C++ (high-performance imaging)", "Embedded firmware (STM32, BLE, Arduino)"]
+      "keywords": [
+        "Python (data analysis, automation)",
+        "C++ (high-performance imaging)",
+        "Embedded firmware (STM32, BLE, Arduino)"
+      ]
     },
     {
       "name": "Experimental Systems & Engineering",
@@ -177,7 +183,12 @@
     {
       "name": "Data Analysis",
       "level": "Advanced",
-      "keywords": ["Statistical modelling", "Custom pipeline development", "Behavioural analysis", "Neural data integration"]
+      "keywords": [
+        "Statistical modelling",
+        "Custom pipeline development",
+        "Behavioural analysis",
+        "Neural data integration"
+      ]
     }
   ],
   "awards": [
