@@ -174,22 +174,37 @@ by event counter.
 {% include img_block.liquid width="45%"
    paths="assets/img/projects/imu-board-3d.png"
    titles="Head sensor board"
-   caption="The head sensor board: IMU, magnetometer and connector on a 0.6 mm PCB."
+   caption="The head sensor board — 10 x 7.5 mm on a 0.6 mm substrate, carrying a six-axis IMU, a magnetometer and the connector for its tether."
    note="Board render — a photo next to a coin would sell the size far better." %}
 
 A head-mounted sensor small and light enough for a mouse to wear during natural
-behaviour, giving nine degrees of freedom from a six-axis IMU and a three-axis
-magnetometer. The design keeps animal-side mass down by moving the SPI bus off
-the board over a differential pair rather than carrying a radio and a battery,
-connecting through a nano-miniature connector on a 0.6 mm board.
+behaviour: **10 × 7.5 mm on a 0.6 mm board**, reaching the animal through a
+six-wire cable that weighs almost nothing. The mass budget is the whole design
+problem, so rather than carrying a radio and a battery the board pushes its SPI
+bus off-device down a differential pair — which spends the weight on sensors
+instead of on power.
 
-An earlier generation, built around an off-the-shelf nine-axis sensor stick,
-produced orientation at 50 Hz using a direction-cosine-matrix fusion algorithm.
-It emitted a sync pulse on every sample so head movement lines up with video and
-the rest of the acquisition chain, and displayed angles live during recording so
-a bad mount is caught immediately rather than after the session.
+What that buys is bandwidth. The system it replaces, built around an
+off-the-shelf nine-axis stick, produced orientation at **50 Hz**; this one
+samples the IMU at up to **7 kHz** and the magnetometer at **1 kHz**. That is
+the difference between knowing roughly where a head ended up and being able to
+time the *onset* of a movement to the millisecond — which is precisely what you
+need to ask what activating the superior colliculus does to an orienting
+movement, rather than merely whether it did anything.
 
----
+It is also ours to build. Each board costs around **£100** even at the small
+quantities a lab orders, well under what the commercial units it replaces cost,
+and the design means we can now fabricate our own rather than waiting on a
+supplier.
+
+For anyone interested in the parts:
+
+| Part | Role |
+| --- | --- |
+| **LSM6DSV32X** | Six-axis IMU — accelerometer and gyroscope, high-g variant |
+| **MMC5983MA** | Three-axis magnetometer, giving the ninth degree of freedom |
+| **LTC4332** | SPI extender, carrying the bus differentially down the tether |
+| **Omnetics A79608** | Nano-miniature connector, the standard for head-mounted rodent hardware |
 
 ## FPV drone builds
 
