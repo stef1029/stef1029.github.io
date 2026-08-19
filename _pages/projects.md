@@ -205,6 +205,25 @@ supplier.
 | **LTC4332** | SPI extender, carrying the bus differentially over the 2 m tether |
 | **Omnetics A79608** | Nano-miniature connector, the standard for head-mounted rodent hardware |
 
+## Nematode worm tracking
+
+A colleague needed something straightforward: take these videos of worms and
+tell me where they are on every frame. It works by classical image processing
+rather than a learned model — thresholding inside a hand-drawn region of
+interest, counting worms inside and outside it frame by frame to CSV, with trace
+maps, optional labelled video, and a review mode for correcting counts
+afterwards. Videos process in parallel and the whole thing installs as a single
+command.
+
+The simplicity was the point. The field has no shortage of machine-learning
+trackers that work well right up until the researcher who trained them moves on,
+after which nobody can retrain or debug them. Something quick, consistent and
+transparent enough for the next person to read and adjust is worth more than
+something marginally more accurate that nobody can maintain. The code is on
+[GitHub](https://github.com/stef1029/WormTrackatron7000).
+
+{% include todo.liquid label="image" text="A <strong>trace map</strong> output would suit this section if you have one — it shows the method working at a glance, and this is currently the only project here without a picture. Drop it in and reference it; anything in <code>assets/img/</code> works." %}
+
 ## FPV drone builds
 
 Before the research work I founded **UK Drone Builds**, a small venture building
