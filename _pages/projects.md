@@ -63,30 +63,44 @@ findings are held back until it is public.
 
 ## Automated behavioural rig platform
 
-The instrument the work above runs on, and the thing I spent most of my PhD
-building: a set of automated rigs for freely moving mice, combining wireless
-load-cell platforms for self-initiated trials, high-speed multi-camera video
-capture written in C++ against the Spinnaker SDK, and a general-purpose
+The instrument most of my PhD went into, and the product of several years of
+iteration. The guiding constraint was cost: a commercial behavioural system is
+expensive enough that a lab buys one and then queues for it, which quietly caps
+how much science you can do. These are built from off-the-shelf parts and
+in-house PCBs for a small fraction of that, so a lab can own several and run the
+same experiment across four animals at once rather than four times over. The
+current generation has run hundreds of thousands of trials without failing.
+
+Each rig combines a wireless load-cell platform for self-initiated trials,
+high-speed multi-camera capture written in C++ against the Spinnaker SDK, and an
 acquisition layer that puts behavioural events, video and electrophysiology on a
 common clock.
-
-The control software is a Python workspace split into an application and three
-hardware libraries — one for the rig microcontroller, one for the acquisition
-board, one for the scales. Rigs are described in configuration rather than code,
-with a registry mapping device serial numbers to roles, so swapping a board does
-not mean editing source. The interface runs several rigs side by side, each
-carrying a full session from setup through to post-processing, and the package
-ships autotraining and simulation modes so behaviour can be developed without an
-animal on the rig.
-
-It began as a means to an end for my own experiments and is now used across
-several projects in the lab.
 
 {% include img_block.liquid cols="2" square=true width="80%"
    paths="assets/img/rigs_hero_shot.png, assets/img/rigs_inside_view.png, assets/img/rigs_cross_section_inside_view.png, assets/img/rigs_scales_underside.png"
    titles="Complete rig | Inside the arena | Reward port detail | Load cell underside"
    caption="Clockwise from top left: a complete rig; inside the arena, with a reward port and the central platform; a port close up, showing the speaker and beam-break sensor; and the underside of the platform, where the load cell sits."
    note="Rig gallery." %}
+
+The software was written for the people using it rather than for me. A new
+behaviour is *configured*, not coded, so someone with no programming background
+can define a protocol, and rigs themselves are described in configuration files
+with a registry mapping device serial numbers to roles — swapping a board does
+not mean editing source. Peripherals attach the same way, so adding optogenetic
+stimulation or an electrophysiology recording to an existing task is a
+configuration change rather than a rewrite.
+
+Two features do most of the work in practice. **Autotraining** walks animals
+through a training schedule unsupervised, and a **simulation mode** lets a new
+protocol be built and debugged with no animal on the rig at all. When a session
+ends the data is packaged, uploaded to the institute servers and pushed through
+standard analysis automatically, so the experiment finishes when the mouse does.
+
+{% include img_block.liquid width="100%"
+   paths="assets/img/behaviour_rigs_gui_screenshot.png"
+   titles="The control interface, three rigs mid-session"
+   caption="Three rigs running at once: live overhead video, load-cell traces with the trial-initiation threshold, running accuracy, and a timestamped session log for each."
+   note="GUI screenshot." %}
 
 {% include img_block.liquid width="100%"
    paths="assets/img/rigs_setup_photos/all_rigs_front_on_lids_on.jpg"
@@ -179,8 +193,4 @@ deadline that later let me take on my PhD work.
 
 ---
 
-## Code
 
-Public repositories for most of the above are on
-[GitHub](https://github.com/stef1029); the highlights are listed on the
-[repositories]({{ '/repositories/' | relative_url }}) page.
