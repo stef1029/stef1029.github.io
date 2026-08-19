@@ -115,37 +115,59 @@ standard analysis automatically, so the experiment finishes when the mouse does.
 {% include img_block.liquid eager=true width="100%"
    paths="assets/img/floating_platform_hardware_concept.png"
    titles="The floating platform assembly"
-   caption="Concept render of the platform: five reward ports arranged around a central stage, each with its own driver board. The design is still in development, so the built system will differ."
+   caption="Concept render: a platform floating on a cushion of air, with five reward ports arranged around the mouse. The design is still being iterated, so the built system will differ."
    note="Whole-assembly render." %}
 
-The second-generation platform, developed during my postdoc and **still in
-active development**: a fully wireless replacement for the tethered system
-above, taken from concept to manufactured hardware in a matter of weeks. I
-designed the boards in KiCad and wrote the firmware. There are three — an
-nRF52840 hub that owns the time base and trial state and talks to the host over
-Bluetooth, STM32G071 reward ports on an RS-485 trunk handling beam-break capture
-and local outputs, and an nRF54L15 bridge that generates TTL markers for an
-external acquisition system. The current platform uses five ports; the firmware
-takes the count as a build-time constant, so the same code serves a different
-arena.
+Mouse orienting research forces an awkward choice. Head-fixing an animal buys
+you everything the modern toolkit needs — two-photon imaging of individual
+cells, acute multi-probe Neuropixels recordings, precise stimulus control — but
+the animal can then only report its decision with something abstract like a lick,
+and the whole-body movement you actually care about is gone. Let it move freely
+and you get the behaviour back but lose most of the access.
 
-The interesting part is timing. Nothing is slaved to a distributed clock: every
-node free-runs on its own oscillator, and each maintains a rolling **affine
-model** mapping its local ticks onto the hub's 16 MHz reference. Wired nodes are
-disciplined by a 4 Hz sync pulse generated entirely in hardware, with no
-interrupt anywhere in the path. The wireless node has no wire to pulse, so both
-ends instead report Bluetooth connection-event anchors and match them on the
-event counter. Scheduling runs the same model backwards — to place a TTL, the
-hub picks a time in its own domain and inverts it through the target's model to
-get an absolute local target.
+This platform is an attempt to have both. The mouse is head-fixed, but the stage
+beneath it floats on a cushion of air and is free to rotate, so it can still
+make a real orienting movement towards a reward port while sitting under a
+microscope. It is the second-generation system, developed during my postdoc,
+currently in production and still being iterated.
+
+Free rotation is what forces everything else. Nothing can cross to a spinning
+platform, so the moving side has to be self-contained: an nRF52840 hub carrying
+the time base and the Bluetooth link to the host, and five STM32G071 reward
+ports on a local RS-485 trunk. It runs from LiPo cells, with a hole through the
+centre of the table for wired power when a session needs it. The firmware
+discovers how many ports are attached at startup, so peripherals are effectively
+plug-and-play. I designed the boards in KiCad and wrote the firmware with Goran
+Ivancic.
+
+Each port is a small instrument in its own right: an RGB LED for visual cues,
+an amplifier good enough for real sound-localisation work, a beam-break sensor
+that detects the mouse arriving, and a solenoid metering liquid reward from a
+local reservoir. The walls that stop the animal leaving are mounted on the fixed
+table rather than the platform, which keeps mass off the moving part.
+
+Position is tracked two ways at once. A camera underneath the air table watches
+a fixed marker on the underside of the platform, which gives absolute position
+and orientation; a 9-DOF IMU and magnetometer on the hub board fill in fast
+movement on timescales the camera cannot resolve.
 
 {% include img_block.liquid cols="3" square=true width="100%"
    paths="assets/img/floating_platform_close_up.png, assets/img/projects/rig2-hub-3d.png, assets/img/reward_port_3d_model.png"
    titles="Ports in place | Hub board | Reward port board"
-   caption="Left to right: reward ports and their driver boards in position around the stage; the hub board, which owns the time base and the link to the host; and a single reward port board, five of which sit on the RS-485 trunk. All three are renders of a design still being iterated."
+   caption="Left to right: reward ports in position around the platform; the hub board, which owns the time base and the link to the host; and a single reward port board, five of which sit on the RS-485 trunk. All renders of a design still in progress."
    note="Detail and boards." %}
 
-{% include todo.liquid label="check" text="<strong>Check my wording for the platform itself.</strong> I've called the centre a &quot;central stage&quot; and avoided naming the mechanism, since the renders show an annular surface covered in a dense array of posts and I did not want to guess at how it floats. Correct the caption if there's a proper term for it." %}
+Which leaves timing as the hard problem, since the moving and stationary halves
+of the system share no wire. Nothing is slaved to a distributed clock: every
+node free-runs on its own oscillator and maintains a rolling **affine model**
+mapping its local ticks onto the hub's 16 MHz reference. The wired ports are
+disciplined by a 4 Hz sync pulse generated entirely in hardware, with no
+interrupt in the path. The stationary bridge beside the recording rig has no
+wire to pulse, so both ends report Bluetooth connection-event anchors instead
+and match them on the event counter. Scheduling runs the same model backwards:
+to place a TTL marker for the neural recording, the hub picks a time in its own
+domain and inverts it through the target's model to get an absolute local
+target.
 
 ---
 
