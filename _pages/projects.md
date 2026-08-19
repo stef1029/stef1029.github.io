@@ -179,10 +179,11 @@ by event counter.
 
 A head-mounted sensor small and light enough for a mouse to wear during natural
 behaviour: **10 × 7.5 mm on a 0.6 mm board**, reaching the animal through a
-six-wire cable that weighs almost nothing. The mass budget is the whole design
-problem, so rather than carrying a radio and a battery the board pushes its SPI
-bus off-device down a differential pair — which spends the weight on sensors
-instead of on power.
+six-wire cable. Mass is the whole design problem, so rather than carrying a radio and a
+battery the board keeps only the sensors and sends its SPI bus off-device.
+That tether then has to run **two metres** for the animal to range freely,
+which is far past what plain SPI tolerates — hence a differential extender
+driving the bus down the cable.
 
 What that buys is bandwidth. The system it replaces, built around an
 off-the-shelf nine-axis stick, produced orientation at **50 Hz**; this one
@@ -197,13 +198,11 @@ quantities a lab orders, well under what the commercial units it replaces cost,
 and the design means we can now fabricate our own rather than waiting on a
 supplier.
 
-For anyone interested in the parts:
-
 | Part | Role |
 | --- | --- |
-| **LSM6DSV32X** | Six-axis IMU — accelerometer and gyroscope, high-g variant |
+| **LSM6DSV32X** | Six-axis IMU — accelerometer and gyroscope |
 | **MMC5983MA** | Three-axis magnetometer, giving the ninth degree of freedom |
-| **LTC4332** | SPI extender, carrying the bus differentially down the tether |
+| **LTC4332** | SPI extender, carrying the bus differentially over the 2 m tether |
 | **Omnetics A79608** | Nano-miniature connector, the standard for head-mounted rodent hardware |
 
 ## FPV drone builds
