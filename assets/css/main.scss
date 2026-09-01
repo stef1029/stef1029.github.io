@@ -189,3 +189,20 @@ img.medium-zoom-image--opened {
     max-width: 100% !important;
   }
 }
+
+/* --- Decorative CV banner (_layouts/cv.liquid, `banner:` front matter) ----- */
+/* figure.liquid wraps the image in a <figure>, which carries a browser default
+   bottom margin; zero it so the gap below the banner is this rule's alone. */
+.cv-banner {
+  margin: 0 0 1.5rem;
+
+  figure {
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}

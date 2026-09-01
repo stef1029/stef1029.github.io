@@ -1,0 +1,53 @@
+---
+layout: default
+---
+{% comment %}
+  ---------------------------------------------------------------------------
+  LOCAL OVERRIDE of the `cv` layout owned by al_folio_core (copied from v1.0.15).
+
+  Why this file exists: the `cv` layout never renders `{{ content }}`, so
+  markdown in _pages/cv.md is silently discarded — there is no way to put a
+  banner on that page from the page itself. `{% al_folio_cv_render %}` then
+  emits the entire article as one opaque block (header, <h1>, PDF link and all),
+  so the banner cannot be slotted between the title and the CV body without
+  reimplementing the whole render. Above the header is the only insertion point,
+  which is where a banner wants to be anyway.
+
+  Set the image in the page's front matter:
+
+      banner: assets/img/brain_slices.jpg
+
+  Everything else is verbatim from the gem. ON UPGRADING al_folio_core: diff
+  this against the gem's own _layouts/cv.liquid and re-apply the banner block,
+  or delete this file if the gem grows a banner hook of its own. Find the gem's
+  copy with:  gem contents al_folio_core | grep layouts/cv
+  ---------------------------------------------------------------------------
+{% endcomment %}
+{% assign cv_feature_enabled = site.al_folio.features.cv.enabled | default: true %}
+
+{% if site.plugins contains 'al_folio_cv' and cv_feature_enabled %}
+  {% if page.banner %}
+    {% comment %} Decorative only: alt="" keeps screen readers from announcing
+       it. figure.liquid omits the attribute entirely when alt is not passed,
+       which is worse — some readers fall back to reading the filename. {% endcomment %}
+    <div class="cv-banner">
+      {% include figure.liquid
+         path=page.banner
+         alt=""
+         loading="eager"
+         sizes="95vw"
+         class="img-fluid rounded" %}
+    </div>
+  {% endif %}
+  {% al_folio_cv_render %}
+{% else %}
+  <div class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-description">CV rendering is unavailable.</p>
+    </header>
+    <article>
+      <p>Enable the <code>al_folio_cv</code> plugin and set <code>al_folio.features.cv.enabled: true</code> to render this page.</p>
+    </article>
+  </div>
+{% endif %}

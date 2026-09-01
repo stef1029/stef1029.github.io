@@ -35,6 +35,8 @@ module.exports = {
     "cv-skill",
     "cv-skill-name",
     "cv-skill-body",
+    // decorative banner wrapper from the local _layouts/cv.liquid override
+    "cv-banner",
     "img-grid",
     "img-grid-2",
     "img-grid-3",
