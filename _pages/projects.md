@@ -155,9 +155,9 @@ and orientation; a 9-DOF IMU and magnetometer on the hub board fill in fast
 movement on timescales the camera cannot resolve.
 
 {% include img_block.liquid cols="3" square=true width="100%"
-   paths="assets/img/floating_platform_close_up.png, assets/img/projects/rig2-hub-3d.png, assets/img/reward_port_3d_model.png"
+   paths="assets/img/floating_platform_close_up.png, assets/img/floating_hub_pcb.jpg, assets/img/reward_port_pcb.jpg"
    titles="Ports in place | Hub board | Reward port board"
-   caption="Left to right: reward ports in position around the platform; the hub board, which owns the time base and the link to the host; and a single reward port board, five of which sit on the RS-485 trunk. All renders of a design still in progress."
+   caption="Left to right: reward ports in position around the platform (a render of a design still being iterated); the assembled hub board, which owns the time base and the link to the host; and a single reward port board, five of which sit on the RS-485 trunk."
    note="Detail and boards." %}
 
 Which leaves timing as the hard problem, since the moving and stationary halves
@@ -174,11 +174,11 @@ by event counter.
 
 ## Mouse-wearable motion sensor
 
-{% include img_block.liquid width="45%"
-   paths="assets/img/projects/imu-board-3d.png"
-   titles="Head sensor board"
-   caption="The head sensor board — 10 x 7.5 mm on a 0.6 mm substrate, carrying a six-axis IMU, a magnetometer and the connector for its tether."
-   note="Board render — a photo next to a coin would sell the size far better." %}
+{% include img_block.liquid cols="2" width="100%"
+   paths="assets/img/projects/imu-board-3d.png, assets/img/head_sensor_pcb.jpg"
+   titles="Head sensor board render | The assembled board against a ruler"
+   caption="The head sensor board — 10 x 7.5 mm on a 0.6 mm substrate, carrying a six-axis IMU, a magnetometer and the connector for its tether. Left, the design; right, the manufactured board against a millimetre rule."
+   note="Board render and photo." %}
 
 A head-mounted sensor small and light enough for a mouse to wear during natural
 behaviour: **10 × 7.5 mm on a 0.6 mm board**, reaching the animal through a
