@@ -54,6 +54,10 @@ output population and chronic electrophysiology in the lateral superior
 colliculus during task performance. A manuscript is in preparation, and specific
 findings are held back until it is public.
 
+This work forms my doctoral thesis, *Development and Application of a Freely
+Moving Spatial Behaviour for Circuit-Level Investigation of the Mouse Superior
+Colliculus*.
+
 {% include img_block.liquid width="55%"
    paths="assets/img/tetrode_implant.jpg"
    titles="32-channel optetrode microdrive"

@@ -126,6 +126,8 @@ deploy robust experimental systems.
 </div>
 <div class="cv-org">University of Cambridge</div>
 
+Thesis: *Development and Application of a Freely Moving Spatial Behaviour
+for Circuit-Level Investigation of the Mouse Superior Colliculus*.
 Supervised by Dr Marco Tripodi, MRC Laboratory of Molecular Biology.
 
 <div class="cv-entry">
