@@ -13,7 +13,7 @@
     "email": "srogers@mrc-lmb.cam.ac.uk",
     "phone": "",
     "url": "https://stef1029.github.io",
-    "summary": "Neuroscientist with a PhD from the MRC Laboratory of Molecular Biology, bringing strong practical experience in end-to-end design and development. Skilled in combining scientific domain knowledge with hardware, electronics and software engineering to deliver reliable, integrated systems. Experienced collaborating with engineering specialists across disciplines, with a track record of rapidly engaging with unfamiliar technical domains.",
+    "summary": "Neuroscientist with a PhD from the MRC Laboratory of Molecular Biology, bringing strong practical experience in end-to-end design and development. Skilled in combining scientific domain knowledge with hardware, electronics and software engineering to deliver reliable, integrated systems. Experienced collaborating with specialists across disciplines, with a track record of rapidly engaging with unfamiliar technical domains.",
     "location": {
       "city": "Cambridge",
       "countryCode": "GB",
@@ -43,7 +43,7 @@
       "summary": "Extending the behavioural platform developed during my PhD, working across the scientist-engineer interface and supervising a computing student.",
       "highlights": [
         "Led development of a fully wireless successor to the behavioural rig system, taking it from concept to manufactured hardware in weeks: designed custom PCBs and wrote MCU firmware (STM32, BLE).",
-        "Designed and built a mouse-wearable wireless motion sensor (9-DOF IMU with magnetometer)."
+        "Designed and built a mouse-wearable wired motion sensor (9-DOF IMU with magnetometer)."
       ]
     },
     {
@@ -56,7 +56,7 @@
       "summary": "Initiated and led a cross-functional research programme, developing a scalable experimental platform integrating hardware, software and neuroscience methods, now adopted across multiple projects within the lab.",
       "highlights": [
         "Designed and built automated behavioural rigs for studying spatial decision-making in freely moving mice.",
-        "Developed wireless load-cell platforms (ESP32, Bluetooth) for automated trial initiation.",
+        "Developed wireless load-cell platforms for automated trial initiation.",
         "Implemented high-speed video acquisition in C++ using the Spinnaker API, enabling synchronised multi-camera recording.",
         "Engineered a general-purpose data acquisition architecture for synchronising behavioural, video and electrophysiology signals.",
         "Built integrated optogenetics control systems combining IMU-based head tracking, automated laser stimulation and real-time data visualisation.",
@@ -162,9 +162,8 @@
       "level": "Advanced",
       "keywords": [
         "Behavioural rig design",
-        "PCB design",
+        "CAD and PCB design (Solidworks, KiCad)",
         "Wireless sensor systems",
-        "Real-time data acquisition",
         "High-speed imaging (FLIR / Spinnaker)",
         "Hardware-software integration",
         "Multi-system synchronisation"
@@ -186,7 +185,6 @@
       "keywords": [
         "Statistical modelling",
         "Custom pipeline development",
-        "Behavioural analysis",
         "Neural data integration"
       ]
     }

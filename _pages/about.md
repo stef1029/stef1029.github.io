@@ -86,7 +86,7 @@ Extending the behavioural platform developed during my PhD, working across the
 scientist–engineer interface and supervising a computing student.
 
 - Led development of a fully wireless successor to the behavioural rig system, taking it from concept to manufactured hardware in weeks — custom PCBs and MCU firmware (STM32, BLE).
-- Designed and built a mouse-wearable wireless motion sensor (9-DOF IMU with magnetometer).
+- Designed and built a mouse-wearable wired motion sensor (9-DOF IMU with magnetometer).
 
 <div class="cv-entry">
   <strong>Doctoral Researcher</strong>
@@ -152,7 +152,7 @@ First Class Honours, neuroscience specialisation.
 </div>
 <div class="cv-skill">
   <strong class="cv-skill-name">Experimental systems &amp; engineering</strong>
-  <span class="cv-skill-body">Behavioural rig design · PCB design · wireless sensor systems · high-speed imaging (FLIR / Spinnaker) · hardware–software integration · multi-system synchronisation</span>
+  <span class="cv-skill-body">Behavioural rig design · CAD and PCB design (Solidworks, KiCad) · wireless sensor systems · high-speed imaging (FLIR / Spinnaker) · hardware–software integration · multi-system synchronisation</span>
 </div>
 <div class="cv-skill">
   <strong class="cv-skill-name">Neuroscience &amp; <em>in vivo</em> methods</strong>
@@ -160,7 +160,7 @@ First Class Honours, neuroscience specialisation.
 </div>
 <div class="cv-skill">
   <strong class="cv-skill-name">Data analysis</strong>
-  <span class="cv-skill-body">Statistical modelling · custom pipeline development · behavioural analysis · neural data integration</span>
+  <span class="cv-skill-body">Statistical modelling · custom pipeline development · neural data integration</span>
 </div>
 
 ---
